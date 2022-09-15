@@ -58,7 +58,7 @@ export default defineComponent({
 			this.session = session;
 			this.fetching = false;
 
-			// 既に連携していた場合
+			
 			if (this.session.app.isAuthorized) {
 				os.api('auth/accept', {
 					token: this.session.token,
