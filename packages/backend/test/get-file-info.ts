@@ -129,7 +129,6 @@ describe('Get file info', () => {
 	}));
 
 	it('SVG with XML definition', async (async () => {
-		// https://github.com/misskey-dev/misskey/issues/4413
 		const path = `${_dirname}/resources/with-xml-def.svg`;
 		const info = await getFileInfo(path, { skipSensitiveDetection: true }) as any;
 		delete info.warnings;
