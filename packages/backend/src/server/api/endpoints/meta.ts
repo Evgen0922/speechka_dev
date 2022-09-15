@@ -57,12 +57,12 @@ export const meta = {
 			repositoryUrl: {
 				type: 'string',
 				optional: false, nullable: false,
-				default: 'https://github.com/misskey-dev/misskey',
+				default: 'https://github.com/Evgen0922/speechka',
 			},
 			feedbackUrl: {
 				type: 'string',
 				optional: false, nullable: false,
-				default: 'https://github.com/misskey-dev/misskey/issues/new',
+				default: 'https://github.com/Evgen0922/speechka/issues/new',
 			},
 			defaultDarkTheme: {
 				type: 'string',

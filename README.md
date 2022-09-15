@@ -1,9 +1,9 @@
 <div align="center">
-<a href="https://misskey-hub.net">
+<a href="https://github.com/Evgen0922/speechka">
 	<img src="./assets/title_float.svg" alt="Misskey logo" style="border-radius:50%" width="400"/>
 </a>
 	
-**🌎 **[Misskey](https://misskey-hub.net/)** is an open source, decentralized social media platform that's free forever! 🚀**
+**🌎 **[Speechka](https://misskey-hub.net/)** is an open source, decentralized social media platform that's free forever! 🚀**
 	
 ---
 
@@ -28,7 +28,7 @@
 
 <div>
 
-<a href="https://xn--931a.moe/"><img src="https://github.com/misskey-dev/misskey/blob/develop/assets/ai.png?raw=true" align="right" height="320px"/></a>
+<a href="https://xn--931a.moe/"><img src="https://github.com/Evgen0922/speechka/blob/develop/assets/ai.png?raw=true" align="right" height="320px"/></a>
 
 ## ✨ Features
 - **ActivityPub support**\

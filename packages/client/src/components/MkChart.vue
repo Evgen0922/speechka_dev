@@ -8,11 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-/* eslint-disable id-denylist --
-  Chart.js has a `data` attribute in most chart definitions, which triggers the
-  id-denylist violation when setting it. This is causing about 60+ lint issues.
-  As this is part of Chart.js's API it makes sense to disable the check here.
-*/
+
 import { onMounted, ref, watch, PropType, onUnmounted } from 'vue';
 import {
 	Chart,
@@ -34,9 +30,7 @@ import {
 import 'chartjs-adapter-date-fns';
 import { enUS } from 'date-fns/locale';
 import zoomPlugin from 'chartjs-plugin-zoom';
-// https://github.com/misskey-dev/misskey/pull/8575#issuecomment-1114242002
-// We can't use gradient because Vite throws a error.
-//import gradient from 'chartjs-plugin-gradient';
+
 import * as os from '@/os';
 import { defaultStore } from '@/store';
 import { useChartTooltip } from '@/scripts/use-chart-tooltip';
@@ -170,7 +164,7 @@ const render = () => {
 	const gridColor = defaultStore.state.darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
 	const vLineColor = defaultStore.state.darkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)';
 
-	// フォントカラー
+	
 	Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--fg');
 
 	const maxes = chartData.series.map((x, i) => Math.max(...x.data.map(d => d.y)));
