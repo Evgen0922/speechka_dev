@@ -903,7 +903,7 @@ _registry:
   domain: "Domain"
   createKey: "Buat kunci"
 _aboutMisskey:
-  about: "Misskey adalah perangkat lunak sumber terbuka yang sedang dikembangkan oleh syuilo sejak 2014."
+  about: ""
   contributors: "Kontributor utama"
   allContributors: "Seluruh kontributor"
   source: "Sumber kode"

@@ -968,7 +968,7 @@ _registry:
   domain: "โดเมน"
   createKey: "สร้างคีย์"
 _aboutMisskey:
-  about: "Misskey เป็นซอฟต์แวร์โอเพ่นซอร์สที่ถูกพัฒนาโดย Syuilo ตั้งแต่ปี 2014"
+  about: ""
   contributors: "ผู้สนับสนุนหลัก"
   allContributors: "ผู้มีส่วนร่วมทั้งหมด"
   source: "ซอร์สโค้ด"

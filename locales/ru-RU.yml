@@ -900,7 +900,7 @@ _registry:
   domain: "Домен"
   createKey: "Новый ключ"
 _aboutMisskey:
-  about: #"Speechka — программа с открытым исходным кодом, которую разрабатывает syuilo с 2014 года."
+  about: #"Speechka — программа с открытым исходным кодом, которую разрабатывает Evgen0922."
   contributors: "Основные соавторы"
   allContributors: "Все соавторы"
   source: "Исходный код"

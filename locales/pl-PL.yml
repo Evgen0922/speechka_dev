@@ -910,7 +910,7 @@ _registry:
   domain: "Domena"
   createKey: "Utwórz klucz"
 _aboutMisskey:
-  about: "Misskey jest oprogramowanie open source rozwijanym przez syuilo od 2014."
+  about: ""
   contributors: "Główni twórcy"
   allContributors: "Wszyscy twórcy"
   source: "Kod źródłowy"

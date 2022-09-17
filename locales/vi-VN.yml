@@ -968,7 +968,7 @@ _registry:
   domain: "Tên miền"
   createKey: "Tạo mã"
 _aboutMisskey:
-  about: "Misskey là phần mềm mã nguồn mở được phát triển bởi syuilo từ năm 2014."
+  about: ""
   contributors: "Những người đóng góp nổi bật"
   allContributors: "Toàn bộ người đóng góp"
   source: "Mã nguồn"

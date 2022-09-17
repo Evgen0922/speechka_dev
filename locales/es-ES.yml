@@ -968,7 +968,7 @@ _registry:
   domain: "Dominio"
   createKey: "Crear una llave"
 _aboutMisskey:
-  about: "Misskey es un software de código abierto, desarrollado por syuilo desde el 2014"
+  about: ""
   contributors: "Principales colaboradores"
   allContributors: "Todos los colaboradores"
   source: "Código fuente"

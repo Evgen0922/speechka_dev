@@ -968,7 +968,7 @@ _registry:
   domain: "域"
   createKey: "新增機碼"
 _aboutMisskey:
-  about: "Misskey是由syuilo自2014年起開發的開源軟體。"
+  about: ""
   contributors: "主要貢獻者"
   allContributors: "全體貢獻人員"
   source: "原始碼"

@@ -870,7 +870,7 @@ _registry:
   domain: "ドメイン"
   createKey: "キーを作る"
 _aboutMisskey:
-  about: "Misskeyはsyuiloが2014年からずっと作ってはる、オープンソースなソフトウェアや。"
+  about: ""
   contributors: "主な貢献者"
   allContributors: "全ての貢献者"
   source: "ソースコード"

@@ -963,7 +963,7 @@ _registry:
   domain: "Doména"
   createKey: "Vytvoriť kľúč"
 _aboutMisskey:
-  about: "Misskey je open-source softvér, ktorý vyvíja syuilo od 2014."
+  about: ""
   contributors: "Hlavní prispievatelia"
   allContributors: "Všetci prispievatelia"
   source: "Zdrojový kód"

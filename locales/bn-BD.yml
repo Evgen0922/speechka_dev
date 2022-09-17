@@ -899,7 +899,7 @@ _registry:
   domain: "ডোমেন"
   createKey: "কী বানান"
 _aboutMisskey:
-  about: "Misskey, একটি ওপেন সোর্স সফ্টওয়্যার যা 2014 সাল থেকে syuilo তৈরি করছেন।"
+  about: "Misskey, একটি ওপেন সোর্স সফ্টওয়্যার যা 2014 সাল থেকে Evgen0922 তৈরি করছেন।"
   contributors: "প্রধান কন্ট্রিবিউটারগণ"
   allContributors: "সকল কন্ট্রিবিউটারগণ"
   source: "সোর্স কোড"

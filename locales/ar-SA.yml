@@ -858,7 +858,7 @@ _registry:
   domain: "النّطاق"
   createKey: "أنشئ مفتاحًا"
 _aboutMisskey:
-  about: "ميسكي هو برمجية مفتوحة المصدر يطورها syuilo منذ 2014."
+  about: ""
   contributors: "المساهمون الرئيسيون"
   allContributors: "كل المساهمين"
   source: "الشفرة المصدرية"

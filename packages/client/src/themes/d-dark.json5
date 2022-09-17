@@ -2,7 +2,7 @@
 	id: '8050783a-7f63-445a-b270-36d0f6ba1677',
 
 	name: 'Mi Dark',
-	author: 'syuilo',
+	author: 'Evgen0922',
 	desc: 'Default light theme',
 
 	base: 'dark',

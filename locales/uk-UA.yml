@@ -758,7 +758,7 @@ _registry:
   domain: "Домен"
   createKey: "Створити ключ"
 _aboutMisskey:
-  about: "Misskey - це програмне забезпечення з відкритим кодом, яке розробляє syuilo з 2014 року."
+  about: ""
   contributors: "Головні помічники"
   allContributors: "Всі помічники"
   source: "Вихідний код"
