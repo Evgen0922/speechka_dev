@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://github.com/Evgen0922/speechka">
+<a href="https://github.com/Evgen0922/speechka_dev">
 	<img src="./assets/title_float.svg" alt="Misskey logo" style="border-radius:50%" width="400"/>
 </a>
 	
@@ -28,7 +28,7 @@
 
 <div>
 
-<a href="https://xn--931a.moe/"><img src="https://github.com/Evgen0922/speechka/blob/develop/assets/ai.png?raw=true" align="right" height="320px"/></a>
+<a href="https://xn--931a.moe/"><img src="https://github.com/Evgen0922/speechka_dev/blob/develop/assets/ai.png?raw=true" align="right" height="320px"/></a>
 
 ## ✨ Features
 - **ActivityPub support**\

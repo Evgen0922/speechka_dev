@@ -29,7 +29,7 @@
 			</main>
 			<div class="powered-by">
 				<b><MkA to="/">{{ host }}</MkA></b>
-				<small>Powered by <a href="https://github.com/Evgen0922/speechka" target="_blank">Speechka</a></small>
+				<small>Powered by <a href="https://github.com/Evgen0922/speechka_dev" target="_blank">Speechka</a></small>
 			</div>
 		</div>
 	</div>

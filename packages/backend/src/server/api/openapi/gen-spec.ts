@@ -15,7 +15,7 @@ export function genOpenapiSpec() {
 
 		externalDocs: {
 			description: 'Repository',
-			url: 'https://github.com/Evgen0922/speechka',
+			url: 'https://github.com/Evgen0922/speechka_dev',
 		},
 
 		servers: [{
@@ -77,7 +77,7 @@ export function genOpenapiSpec() {
 			description: desc,
 			externalDocs: {
 				description: 'Source code',
-				url: `https://github.com/Evgen0922/speechka/blob/develop/packages/backend/src/server/api/endpoints/${endpoint.name}.ts`,
+				url: `https://github.com/Evgen0922/speechka_dev/blob/develop/packages/backend/src/server/api/endpoints/${endpoint.name}.ts`,
 			},
 			...(endpoint.meta.tags ? {
 				tags: [endpoint.meta.tags[0]],
