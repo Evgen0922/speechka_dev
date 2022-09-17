@@ -110,7 +110,7 @@ function openInstanceMenu(ev: MouseEvent) {
 			text: i18n.ts.document,
 			icon: 'fas fa-question-circle',
 			action: () => {
-				window.open('https://misskey-hub.net/help.html', '_blank');
+				window.open('https://github.com/Evgen0922/speechka_dev_ynh', '_blank');
 			},
 		}],
 	}, {
