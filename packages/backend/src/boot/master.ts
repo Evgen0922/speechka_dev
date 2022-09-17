@@ -27,14 +27,14 @@ const themeColor = chalk.hex('#86b300');
 
 function greet() {
 	if (!envOption.quiet) {
-		//#region Misskey logo
+		
 		const v = `v${meta.version}`;
 		console.log(themeColor('  _____ _         _           '));
 		console.log(themeColor(' |     |_|___ ___| |_ ___ _ _ '));
 		console.log(themeColor(' | | | | |_ -|_ -| \'_| -_| | |'));
 		console.log(themeColor(' |_|_|_|_|___|___|_,_|___|_  |'));
 		console.log(' ' + chalk.gray(v) + themeColor('                        |___|\n'.substr(v.length)));
-		//#endregion
+		
 
 		console.log(' Misskey is an open-source decentralized microblogging platform.');
 		console.log(chalk.rgb(255, 136, 0)(' If you like Misskey, please donate to support development. https://www.patreon.com/'));
@@ -66,7 +66,7 @@ export async function masterMain() {
 		process.exit(1);
 	}
 
-	bootLogger.succ('Misskey initialized');
+	bootLogger.succ('Speechka initialized');
 
 	if (!envOption.disableClustering) {
 		await spawnWorkers(config.clusterLimit);

@@ -9,7 +9,7 @@ export function genOpenapiSpec() {
 
 		info: {
 			version: 'v1',
-			title: 'Misskey API',
+			title: 'Speechka API',
 			'x-logo': { url: '/static-assets/api-doc.png' },
 		},
 
