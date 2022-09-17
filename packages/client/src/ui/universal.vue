@@ -19,13 +19,12 @@
 	<button v-if="!isDesktop && !isMobile" class="widgetButton _button" @click="widgetsShowing = true"><i class="fas fa-layer-group"></i></button>
 
 	<div v-if="isMobile" class="buttons">
-		<button class="button nav _button" @click="drawerMenuShowing = true"><i class="fas fa-bars"></i><span v-if="menuIndicated" class="indicator"><i class="fas fa-circle"></i></span></button>
+		<button class="button nav _button" @click="drawerMenuShowing = true"><i class="fas fa-bars"></i></button>
+		<button class="button widget _button" @click="mainRouter.push('/my/notifications')"><i class="fas fa-bell"></i><span v-if="$i?.hasUnreadNotification" class="indicator"><i class="fas fa-circle"></i></button>
 		<button class="button home _button" @click="mainRouter.currentRoute.value.name === 'index' ? top() : mainRouter.push('/')"><i class="fas fa-home"></i></button>
-		<button class="button notifications _button" @click="mainRouter.push('/my/messaging')"><i class="fas fa-comments"></i><span v-if="$i?.hasUnreadNotification" class="indicator"><i class="fas fa-circle"></i></span></button>
-		<button class="button widget _button" @click="widgetsShowing = true"><i class="fas fa-layer-group"></i></button>
+		<button class="button notifications _button" @click="mainRouter.push('/my/messaging')"><i class="fas fa-comments"></i><span v-if="menuIndicated" class="indicator"><i class="fas fa-circle"></i></span></button>
 		<button class="button post _button" @click="os.post()"><i class="fas fa-pencil-alt"></i></button>
 	</div>
-
 	<transition :name="$store.state.animation ? 'menuDrawer-back' : ''">
 		<div
 			v-if="drawerMenuShowing"
@@ -78,7 +77,7 @@ const XStatusBars = defineAsyncComponent(() => import('@/ui/_common_/statusbars.
 const DESKTOP_THRESHOLD = 1100;
 const MOBILE_THRESHOLD = 500;
 
-// デスクトップでウィンドウを狭くしたときモバイルUIが表示されて欲しいことはあるので deviceKind === 'desktop' の判定は行わない
+
 const isDesktop = ref(window.innerWidth >= DESKTOP_THRESHOLD);
 const isMobile = ref(deviceKind === 'smartphone' || window.innerWidth <= MOBILE_THRESHOLD);
 window.addEventListener('resize', () => {
@@ -99,7 +98,7 @@ provideMetadataReceiver((info) => {
 
 const menuIndicated = computed(() => {
 	for (const def in navbarItemDef) {
-		if (def === 'notifications') continue; // 通知は下にボタンとして表示されてるから
+		if (def === 'notifications') continue; 
 		if (navbarItemDef[def].indicated) return true;
 	}
 	return false;
@@ -217,17 +216,17 @@ const wallpaper = localStorage.getItem('wallpaper') != null;
 }
 
 .dkgtipfy {
-	$ui-font-size: 1em; // TODO: どこかに集約したい
+	$ui-font-size: 1em; 
 	$widgets-hide-threshold: 1090px;
 
-	// ほんとは単に 100vh と書きたいところだが... https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+	
 	min-height: calc(var(--vh, 1vh) * 100);
 	box-sizing: border-box;
 	display: flex;
 
 	&.wallpaper {
 		background: var(--wallpaperOverlay);
-		//backdrop-filter: var(--blur, blur(4px));
+		
 	}
 
 	> .sidebar {
@@ -273,7 +272,7 @@ const wallpaper = localStorage.getItem('wallpaper') != null;
 		top: 0;
 		right: 0;
 		z-index: 1001;
-		// ほんとは単に 100vh と書きたいところだが... https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+		
 		height: calc(var(--vh, 1vh) * 100);
 		padding: var(--margin);
 		box-sizing: border-box;
@@ -362,7 +361,7 @@ const wallpaper = localStorage.getItem('wallpaper') != null;
 		top: 0;
 		left: 0;
 		z-index: 1001;
-		// ほんとは単に 100vh と書きたいところだが... https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+		
 		height: calc(var(--vh, 1vh) * 100);
 		width: 240px;
 		box-sizing: border-box;

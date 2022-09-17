@@ -35,6 +35,7 @@
 
 			<MkA v-click-anime v-tooltip.noDelay.right="i18n.ts.messaging" class="item" active-class="active" to="/my/messaging">
 				<i class="icon fas fa-comments fa-fw"></i><span class="text">{{ i18n.ts.messaging }}</span>
+				<span v-if="menuIndicated" class="indicator"><i class="fas fa-circle"></i></span>
 			</MkA>
 
 			<button v-click-anime class="item _button" @click="more">
