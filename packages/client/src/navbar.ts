@@ -45,6 +45,13 @@ export const navbarItemDef = reactive({
 		indicated: computed(() => $i != null && $i.hasUnreadAnnouncement),
 		to: '/announcements',
 	},
+	messaging: {
+		title: 'messaging',
+		icon: 'fas fa-comments',
+		show: computed(() => $i != null),
+		indicated: computed(() => $i != null && $i.hasUnreadMessagingMessage),
+		to: '/my/messaging',
+	},
 	search: {
 		title: 'search',
 		icon: 'fas fa-search',
