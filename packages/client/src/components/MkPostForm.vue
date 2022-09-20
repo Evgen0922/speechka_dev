@@ -14,14 +14,13 @@
 		</button>
 		<div class="right">
 			<span class="text-count" :class="{ over: textLength > maxTextLength }">{{ maxTextLength - textLength }}</span>
-			<span v-if="localOnly" class="local-only"><i class="fas fa-biohazard"></i></span>
 			<button ref="visibilityButton" v-tooltip="i18n.ts.visibility" class="_button visibility" :disabled="channel != null" @click="setVisibility">
 				<span v-if="visibility === 'public'"><i class="fas fa-globe"></i></span>
 				<span v-if="visibility === 'home'"><i class="fas fa-home"></i></span>
 				<span v-if="visibility === 'followers'"><i class="fas fa-unlock"></i></span>
 				<span v-if="visibility === 'specified'"><i class="fas fa-envelope"></i></span>
 			</button>
-			<button v-tooltip="i18n.ts.previewNoteText" class="_button preview" :class="{ active: showPreview }" @click="showPreview = !showPreview"><i class="fas fa-file-code"></i></button>
+
 			<button class="submit _buttonGradate" :disabled="!canPost" data-cy-open-post-form-submit @click="post">{{ submitText }}<i :class="reply ? 'fas fa-reply' : renote ? 'fas fa-quote-right' : 'fas fa-paper-plane'"></i></button>
 		</div>
 	</header>
@@ -244,10 +243,10 @@ if (props.reply && props.reply.text != null) {
 				`@${x.username}` :
 				`@${x.username}@${toASCII(otherHost)}`;
 
-		// 自分は除外
+		// 
 		if ($i.username === x.username && (x.host == null || x.host === host)) continue;
 
-		// 重複は除外
+		// 
 		if (text.includes(`${mention} `)) continue;
 
 		text += `${mention} `;
@@ -256,10 +255,10 @@ if (props.reply && props.reply.text != null) {
 
 if (props.channel) {
 	visibility = 'public';
-	localOnly = true; // TODO: チャンネルが連合するようになった折には消す
+	localOnly = true; //
 }
 
-// 公開以外へのリプライ時は元の公開範囲を引き継ぐ
+// 
 if (props.reply && ['home', 'followers', 'specified'].includes(props.reply.visibility)) {
 	visibility = props.reply.visibility;
 	if (props.reply.visibility === 'specified') {

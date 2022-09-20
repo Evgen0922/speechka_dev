@@ -121,7 +121,7 @@ function showMenu(ev) {
 		text: i18n.ts.help,
 		icon: 'fas fa-question-circle',
 		action: () => {
-			window.open('https://misskey-hub.net/help.md', '_blank');
+			window.open('https://github.com/Evgen0922/speechka_dev', '_blank');
 		},
 	}], ev.currentTarget ?? ev.target);
 }

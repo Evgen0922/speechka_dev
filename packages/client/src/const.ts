@@ -20,6 +20,7 @@ export const FILE_TYPE_BROWSERSAFE = [
 	'video/quicktime',
 	'video/mp4',
 	'audio/mp4',
+	'audio/mp3',
 	'video/x-m4v',
 	'audio/x-m4a',
 	'video/3gpp',

@@ -123,7 +123,7 @@ export default defineComponent({
 		},
 
 		help() {
-			window.open('https://misskey-hub.net/docs/keyboard-shortcut.md', '_blank');
+			window.open('https://github.com/Evgen0922/speechka_dev', '_blank');
 		},
 	},
 });

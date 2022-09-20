@@ -102,11 +102,6 @@ const menuDef = $computed(() => [{
 		to: '/admin/emojis',
 		active: currentPage?.route.name === 'emojis',
 	}, {
-		icon: 'fas fa-globe',
-		text: i18n.ts.federation,
-		to: '/about#federation',
-		active: currentPage?.route.name === 'federation',
-	}, {
 		icon: 'fas fa-clipboard-list',
 		text: i18n.ts.jobQueue,
 		to: '/admin/queue',

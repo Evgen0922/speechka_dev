@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-// SPECIFICATION: https://misskey-hub.net/docs/features/share-form.html
+
 
 import { } from 'vue';
 import { noteVisibilities } from 'misskey-js';

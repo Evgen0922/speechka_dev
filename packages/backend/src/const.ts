@@ -24,6 +24,7 @@ export const FILE_TYPE_BROWSERSAFE = [
 	'video/quicktime',
 	'video/mp4',
 	'audio/mp4',
+	'audio/mp3',
 	'video/x-m4v',
 	'audio/x-m4a',
 	'video/3gpp',
@@ -39,8 +40,3 @@ export const FILE_TYPE_BROWSERSAFE = [
 	'audio/x-flac',
 	'audio/vnd.wave',
 ];
-/*
-https://github.com/sindresorhus/file-type/blob/main/supported.js
-https://github.com/sindresorhus/file-type/blob/main/core.js
-https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers
-*/

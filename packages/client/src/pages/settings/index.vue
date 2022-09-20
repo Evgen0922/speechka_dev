@@ -134,11 +134,6 @@ const menuDef = computed(() => [{
 		to: '/settings/word-mute',
 		active: currentPage?.route.name === 'word-mute',
 	}, {
-		icon: 'fas fa-key',
-		text: 'API',
-		to: '/settings/api',
-		active: currentPage?.route.name === 'api',
-	}, {
 		icon: 'fas fa-ellipsis-h',
 		text: i18n.ts.other,
 		to: '/settings/other',

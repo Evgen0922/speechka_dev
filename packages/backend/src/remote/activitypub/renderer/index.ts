@@ -32,7 +32,7 @@ export const renderActivity = (x: any): IActivity | null => {
 				PropertyValue: 'schema:PropertyValue',
 				value: 'schema:value',
 				
-				misskey: 'https://misskey-hub.net/ns#',
+				misskey: 'https://github.com/Evgen0922/speechka_dev',
 				'_misskey_content': 'misskey:_misskey_content',
 				'_misskey_quote': 'misskey:_misskey_quote',
 				'_misskey_reaction': 'misskey:_misskey_reaction',
