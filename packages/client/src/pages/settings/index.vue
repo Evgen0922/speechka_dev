@@ -120,11 +120,6 @@ const menuDef = computed(() => [{
 		text: i18n.ts.sounds,
 		to: '/settings/sounds',
 		active: currentPage?.route.name === 'sounds',
-	}, {
-		icon: 'fas fa-plug',
-		text: i18n.ts.plugins,
-		to: '/settings/plugin',
-		active: currentPage?.route.name === 'plugin',
 	}],
 }, {
 	title: i18n.ts.otherSettings,
@@ -148,12 +143,7 @@ const menuDef = computed(() => [{
 		text: 'API',
 		to: '/settings/api',
 		active: currentPage?.route.name === 'api',
-	}, {
-		icon: 'fas fa-bolt',
-		text: 'Webhook',
-		to: '/settings/webhook',
-		active: currentPage?.route.name === 'webhook',
-	}, {
+	}, - {
 		icon: 'fas fa-ellipsis-h',
 		text: i18n.ts.other,
 		to: '/settings/other',
