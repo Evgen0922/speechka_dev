@@ -134,11 +134,6 @@ const menuDef = computed(() => [{
 		to: '/settings/import-export',
 		active: currentPage?.route.name === 'import-export',
 	}, {
-		icon: 'fas fa-volume-mute',
-		text: i18n.ts.instanceMute,
-		to: '/settings/instance-mute',
-		active: currentPage?.route.name === 'instance-mute',
-	}, {
 		icon: 'fas fa-ban',
 		text: i18n.ts.muteAndBlock,
 		to: '/settings/mute-block',
