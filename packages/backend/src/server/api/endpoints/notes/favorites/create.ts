@@ -34,15 +34,15 @@ export const paramDef = {
 	required: ['noteId'],
 } as const;
 
-// eslint-disable-next-line import/no-default-export
+
 export default define(meta, paramDef, async (ps, user) => {
-	// Get favoritee
+	
 	const note = await getNote(ps.noteId).catch(e => {
 		if (e.id === '9725d0ce-ba28-4dde-95a7-2cbb2c15de24') throw new ApiError(meta.errors.noSuchNote);
 		throw e;
 	});
 
-	// if already favorited
+	
 	const exist = await NoteFavorites.findOneBy({
 		noteId: note.id,
 		userId: user.id,
@@ -52,7 +52,7 @@ export default define(meta, paramDef, async (ps, user) => {
 		throw new ApiError(meta.errors.alreadyFavorited);
 	}
 
-	// Create favorite
+	
 	await NoteFavorites.insert({
 		id: genId(),
 		createdAt: new Date(),

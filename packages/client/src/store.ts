@@ -8,8 +8,7 @@ export const noteActions = [];
 export const noteViewInterruptors = [];
 export const notePostInterruptors = [];
 
-// TODO: それぞれいちいちwhereとかdefaultというキーを付けなきゃいけないの冗長なのでなんとかする(ただ型定義が面倒になりそう)
-//       あと、現行の定義の仕方なら「whereが何であるかに関わらずキー名の重複不可」という制約を付けられるメリットもあるからそのメリットを引き継ぐ方法も考えないといけない
+
 export const defaultStore = markRaw(new Storage('base', {
 	tutorial: {
 		where: 'account',
@@ -69,13 +68,14 @@ export const defaultStore = markRaw(new Storage('base', {
 		default: [
 			'notifications',
 			'favorites',
-			'drive',
+			'messaging',
+			
 			'followRequests',
 			'-',
 			'explore',
-			'announcements',
 			'search',
-			'-',
+			'drive',
+			'announcements',
 			'ui',
 		],
 	},
@@ -253,7 +253,7 @@ export const defaultStore = markRaw(new Storage('base', {
 	},
 }));
 
-// TODO: 他のタブと永続化されたstateを同期
+// TODO:
 
 const PREFIX = 'miux:';
 
@@ -266,9 +266,7 @@ type Plugin = {
 	ast: any[];
 };
 
-/**
- * 常にメモリにロードしておく必要がないような設定情報を保管するストレージ(非リアクティブ)
- */
+
 import lightTheme from '@/themes/l-light.json5';
 import darkTheme from '@/themes/d-green-lime.json5';
 
@@ -292,9 +290,6 @@ export class ColdDeviceStorage {
 	public static watchers = [];
 
 	public static get<T extends keyof typeof ColdDeviceStorage.default>(key: T): typeof ColdDeviceStorage.default[T] {
-		// TODO: indexedDBにする
-		//       ただしその際はnullチェックではなくキー存在チェックにしないとダメ
-		//       (indexedDBはnullを保存できるため、ユーザーが意図してnullを格納した可能性がある)
 		const value = localStorage.getItem(PREFIX + key);
 		if (value == null) {
 			return ColdDeviceStorage.default[key];
@@ -304,9 +299,7 @@ export class ColdDeviceStorage {
 	}
 
 	public static set<T extends keyof typeof ColdDeviceStorage.default>(key: T, value: typeof ColdDeviceStorage.default[T]): void {
-		// 呼び出し側のバグ等で undefined が来ることがある
-		// undefined を文字列として localStorage に入れると参照する際の JSON.parse でコケて不具合の元になるため無視
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+	
 		if (value === undefined) {
 			console.error(`attempt to store undefined value for key '${key}'`);
 			return;
@@ -323,23 +316,20 @@ export class ColdDeviceStorage {
 		this.watchers.push({ key, callback });
 	}
 
-	// TODO: VueのcustomRef使うと良い感じになるかも
+	// TODO: 
 	public static ref<T extends keyof typeof ColdDeviceStorage.default>(key: T) {
 		const v = ColdDeviceStorage.get(key);
 		const r = ref(v);
-		// TODO: このままではwatcherがリークするので開放する方法を考える
+
 		this.watch(key, v => {
 			r.value = v;
 		});
 		return r;
 	}
 
-	/**
-	 * 特定のキーの、簡易的なgetter/setterを作ります
-	 * 主にvue場で設定コントロールのmodelとして使う用
-	 */
+	
 	public static makeGetterSetter<K extends keyof typeof ColdDeviceStorage.default>(key: K) {
-		// TODO: VueのcustomRef使うと良い感じになるかも
+		
 		const valueRef = ColdDeviceStorage.ref(key);
 		return {
 			get: () => {
@@ -353,7 +343,7 @@ export class ColdDeviceStorage {
 	}
 }
 
-// このファイルに書きたくないけどここに書かないと何故かVeturが認識しない
+
 declare module '@vue/runtime-core' {
 	interface ComponentCustomProperties {
 		$store: typeof defaultStore;

@@ -459,8 +459,6 @@ export const mainRouter = new Router(routes, location.pathname + location.search
 
 window.history.replaceState({ key: mainRouter.getCurrentKey() }, '', location.href);
 
-// TODO: このファイルでスクロール位置も管理する設計だとdeckに対応できないのでなんとかする
-// スクロール位置取得+スクロール位置設定関数をprovideする感じでも良いかも
 
 const scrollPosStore = new Map<string, number>();
 
@@ -473,7 +471,7 @@ mainRouter.addListener('push', ctx => {
 	const scrollPos = scrollPosStore.get(ctx.key) ?? 0;
 	window.scroll({ top: scrollPos, behavior: 'instant' });
 	if (scrollPos !== 0) {
-		window.setTimeout(() => { // 遷移直後はタイミングによってはコンポーネントが復元し切ってない可能性も考えられるため少し時間を空けて再度スクロール
+		window.setTimeout(() => { 
 			window.scroll({ top: scrollPos, behavior: 'instant' });
 		}, 100);
 	}
@@ -491,7 +489,7 @@ window.addEventListener('popstate', (event) => {
 	mainRouter.replace(location.pathname + location.search + location.hash, event.state?.key, false);
 	const scrollPos = scrollPosStore.get(event.state?.key) ?? 0;
 	window.scroll({ top: scrollPos, behavior: 'instant' });
-	window.setTimeout(() => { // 遷移直後はタイミングによってはコンポーネントが復元し切ってない可能性も考えられるため少し時間を空けて再度スクロール
+	window.setTimeout(() => { 
 		window.scroll({ top: scrollPos, behavior: 'instant' });
 	}, 100);
 });

@@ -13,7 +13,7 @@ export function getUserMenu(user, router: Router = mainRouter) {
 	const meId = $i ? $i.id : null;
 
 	async function pushList() {
-		const t = i18n.ts.selectList; // なぜか後で参照すると null になるので最初にメモリに確保しておく
+		const t = i18n.ts.selectList; 
 		const lists = await os.api('users/lists/list');
 		if (lists.length === 0) {
 			os.alert({
