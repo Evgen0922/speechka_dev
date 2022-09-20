@@ -116,11 +116,6 @@ const menuDef = computed(() => [{
 		to: '/settings/navbar',
 		active: currentPage?.route.name === 'navbar',
 	}, {
-		icon: 'fas fa-bars-progress',
-		text: i18n.ts.statusbar,
-		to: '/settings/statusbar',
-		active: currentPage?.route.name === 'statusbar',
-	}, {
 		icon: 'fas fa-music',
 		text: i18n.ts.sounds,
 		to: '/settings/sounds',
