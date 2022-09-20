@@ -14,18 +14,18 @@ export const navbarItemDef = reactive({
 		indicated: computed(() => $i != null && $i.hasUnreadNotification),
 		to: '/my/notifications',
 	},
+	drive: {
+		title: 'drive',
+		icon: 'fas fa-cloud',
+		show: computed(() => $i != null),
+		to: '/my/drive',
+	},
 	messaging: {
 		title: 'messaging',
 		icon: 'fas fa-comments',
 		show: computed(() => $i != null),
 		indicated: computed(() => $i != null && $i.hasUnreadMessagingMessage),
 		to: '/my/messaging',
-	},
-	drive: {
-		title: 'drive',
-		icon: 'fas fa-cloud',
-		show: computed(() => $i != null),
-		to: '/my/drive',
 	},
 	followRequests: {
 		title: 'followRequests',
@@ -39,23 +39,16 @@ export const navbarItemDef = reactive({
 		icon: 'fas fa-hashtag',
 		to: '/explore',
 	},
+	search: {
+		title: 'search',
+		icon: 'fas fa-search',
+		action: () => search(),
+	},
 	announcements: {
 		title: 'announcements',
 		icon: 'fas fa-broadcast-tower',
 		indicated: computed(() => $i != null && $i.hasUnreadAnnouncement),
 		to: '/announcements',
-	},
-	messaging: {
-		title: 'messaging',
-		icon: 'fas fa-comments',
-		show: computed(() => $i != null),
-		indicated: computed(() => $i != null && $i.hasUnreadMessagingMessage),
-		to: '/my/messaging',
-	},
-	search: {
-		title: 'search',
-		icon: 'fas fa-search',
-		action: () => search(),
 	},
 	lists: {
 		title: 'lists',
