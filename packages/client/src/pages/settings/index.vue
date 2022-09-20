@@ -116,20 +116,10 @@ const menuDef = computed(() => [{
 		to: '/settings/navbar',
 		active: currentPage?.route.name === 'navbar',
 	}, {
-		icon: 'fas fa-bars-progress',
-		text: i18n.ts.statusbar,
-		to: '/settings/statusbar',
-		active: currentPage?.route.name === 'statusbar',
-	}, {
 		icon: 'fas fa-music',
 		text: i18n.ts.sounds,
 		to: '/settings/sounds',
 		active: currentPage?.route.name === 'sounds',
-	}, {
-		icon: 'fas fa-plug',
-		text: i18n.ts.plugins,
-		to: '/settings/plugin',
-		active: currentPage?.route.name === 'plugin',
 	}],
 }, {
 	title: i18n.ts.otherSettings,
@@ -138,11 +128,6 @@ const menuDef = computed(() => [{
 		text: i18n.ts.importAndExport,
 		to: '/settings/import-export',
 		active: currentPage?.route.name === 'import-export',
-	}, {
-		icon: 'fas fa-volume-mute',
-		text: i18n.ts.instanceMute,
-		to: '/settings/instance-mute',
-		active: currentPage?.route.name === 'instance-mute',
 	}, {
 		icon: 'fas fa-ban',
 		text: i18n.ts.muteAndBlock,
@@ -158,11 +143,6 @@ const menuDef = computed(() => [{
 		text: 'API',
 		to: '/settings/api',
 		active: currentPage?.route.name === 'api',
-	}, {
-		icon: 'fas fa-bolt',
-		text: 'Webhook',
-		to: '/settings/webhook',
-		active: currentPage?.route.name === 'webhook',
 	}, {
 		icon: 'fas fa-ellipsis-h',
 		text: i18n.ts.other,
