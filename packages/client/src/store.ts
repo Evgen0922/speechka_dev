@@ -110,7 +110,7 @@ export const defaultStore = markRaw(new Storage('base', {
 	tl: {
 		where: 'deviceAccount',
 		default: {
-			src: 'home' as 'home' | 'local' | 'social' | 'global',
+			src: 'home' | 'local' | 'social' | 'global' as 'global',
 			arg: null,
 		},
 	},

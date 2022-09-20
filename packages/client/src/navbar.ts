@@ -20,13 +20,6 @@ export const navbarItemDef = reactive({
 		show: computed(() => $i != null),
 		to: '/my/drive',
 	},
-	messaging: {
-		title: 'messaging',
-		icon: 'fas fa-comments',
-		show: computed(() => $i != null),
-		indicated: computed(() => $i != null && $i.hasUnreadMessagingMessage),
-		to: '/my/messaging',
-	},
 	followRequests: {
 		title: 'followRequests',
 		icon: 'fas fa-user-clock',
