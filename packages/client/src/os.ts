@@ -1,4 +1,4 @@
-// TODO: なんでもかんでもos.tsに突っ込むのやめたいのでよしなに分割する
+
 
 import { Component, markRaw, Ref, ref, defineAsyncComponent } from 'vue';
 import { EventEmitter } from 'eventemitter3';
@@ -24,11 +24,11 @@ export const api = ((endpoint: string, data: Record<string, any> = {}, token?: s
 	};
 
 	const promise = new Promise((resolve, reject) => {
-		// Append a credential
+		
 		if ($i) (data as any).i = $i.token;
 		if (token !== undefined) (data as any).i = token;
 
-		// Send request
+		
 		fetch(endpoint.indexOf('://') > -1 ? endpoint : `${apiUrl}/${endpoint}`, {
 			method: 'POST',
 			body: JSON.stringify(data),
@@ -62,7 +62,7 @@ export const apiGet = ((endpoint: string, data: Record<string, any> = {}) => {
 	const query = new URLSearchParams(data);
 
 	const promise = new Promise((resolve, reject) => {
-		// Send request
+		
 		fetch(`${apiUrl}/${endpoint}?${query}`, {
 			method: 'GET',
 			credentials: 'omit',
@@ -132,7 +132,7 @@ export function promiseDialog<T extends Promise<any>>(
 		}
 	});
 
-	// NOTE: dynamic importすると挙動がおかしくなる(showingの変更が伝播しない)
+	
 	popup(MkWaitingDialog, {
 		success: success,
 		showing: showing,
@@ -164,7 +164,7 @@ export async function popup(component: Component, props: Record<string, any>, ev
 
 	const id = ++popupIdCount;
 	const dispose = () => {
-		// このsetTimeoutが無いと挙動がおかしくなる(autocompleteが閉じなくなる)。Vueのバグ？
+		
 		window.setTimeout(() => {
 			popups.value = popups.value.filter(popup => popup.id !== id);
 		}, 0);
@@ -551,11 +551,7 @@ export function contextMenu(items: MenuItem[] | Ref<MenuItem[]>, ev: MouseEvent)
 
 export function post(props: Record<string, any> = {}) {
 	return new Promise((resolve, reject) => {
-		// NOTE: MkPostFormDialogをdynamic importするとiOSでテキストエリアに自動フォーカスできない
-		// NOTE: ただ、dynamic importしない場合、MkPostFormDialogインスタンスが使いまわされ、
-		//       Vueが渡されたコンポーネントに内部的に__propsというプロパティを生やす影響で、
-		//       複数のpost formを開いたときに場合によってはエラーになる
-		//       もちろん複数のpost formを開けること自体Misskeyサイドのバグなのだが
+		
 		let dispose;
 		popup(MkPostFormDialog, props, {
 			closed: () => {

@@ -73,38 +73,31 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		});
 	}
 
-	// タッチデバイスでCSSの:hoverを機能させる
+	
 	document.addEventListener('touchend', () => {}, { passive: true });
 
-	// 一斉リロード
 	reloadChannel.addEventListener('message', path => {
 		if (path !== null) location.href = path;
 		else location.reload();
 	});
 
-	//#region SEE: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
-	// TODO: いつの日にか消したい
 	const vh = window.innerHeight * 0.01;
 	document.documentElement.style.setProperty('--vh', `${vh}px`);
 	window.addEventListener('resize', () => {
 		const vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	});
-	//#endregion
-
-	// If mobile, insert the viewport meta tag
+	
 	if (['smartphone', 'tablet'].includes(deviceKind)) {
 		const viewport = document.getElementsByName('viewport').item(0);
 		viewport.setAttribute('content',
 			`${viewport.getAttribute('content')}, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover`);
 	}
 
-	//#region Set lang attr
+	
 	const html = document.documentElement;
 	html.setAttribute('lang', lang);
-	//#endregion
 
-	//#region loginId
 	const params = new URLSearchParams(location.search);
 	const loginId = params.get('loginId');
 
@@ -121,9 +114,6 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		history.replaceState({ misskey: 'loginId' }, '', target);
 	}
 
-	//#endregion
-
-	//#region Fetch user
 	if ($i && $i.token) {
 		if (_DEV_) {
 			console.log('account cache found. refreshing...');
@@ -135,7 +125,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 			console.log('no account cache found.');
 		}
 
-		// 連携ログインの場合用にCookieを参照する
+		
 		const i = (document.cookie.match(/igi=(\w+)/) || [null, null])[1];
 
 		if (i != null && i !== 'null') {
@@ -147,8 +137,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 				document.body.innerHTML = '<div>Please wait...</div>';
 				await login(i);
 			} catch (err) {
-				// Render the error screen
-				// TODO: ちゃんとしたコンポーネントをレンダリングする(v10とかのトラブルシューティングゲーム付きのやつみたいな)
+				
 				document.body.innerHTML = '<div id="err">Oops!</div>';
 			}
 		} else {
@@ -157,14 +146,13 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 			}
 		}
 	}
-	//#endregion
 
 	const fetchInstanceMetaPromise = fetchInstance();
 
 	fetchInstanceMetaPromise.then(() => {
 		localStorage.setItem('v', instance.version);
 
-		// Init service worker
+	
 		initializeSw();
 	});
 
@@ -215,7 +203,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 
 	app.mount(rootEl);
 
-	// boot.jsのやつを解除
+	
 	window.onerror = null;
 	window.onunhandledrejection = null;
 
@@ -226,17 +214,17 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		splash.style.pointerEvents = 'none';
 	}
 
-	// クライアントが更新されたか？
+	
 	const lastVersion = localStorage.getItem('lastVersion');
 	if (lastVersion !== version) {
 		localStorage.setItem('lastVersion', version);
 
-		// テーマリビルドするため
+		
 		localStorage.removeItem('theme');
 
-		try { // 変なバージョン文字列来るとcompareVersionsでエラーになるため
+		try { 
 			if (lastVersion != null && compareVersions(version, lastVersion) === 1) {
-				// ログインしてる場合だけ
+				
 				if ($i) {
 					popup(defineAsyncComponent(() => import('@/components/MkUpdated.vue')), {}, {}, 'closed');
 				}
@@ -245,7 +233,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		}
 	}
 
-	// NOTE: この処理は必ず↑のクライアント更新時処理より後に来ること(テーマ再構築のため)
+	
 	watch(defaultStore.reactiveState.darkMode, (darkMode) => {
 		applyTheme(darkMode ? ColdDeviceStorage.get('darkTheme') : ColdDeviceStorage.get('lightTheme'));
 	}, { immediate: localStorage.theme == null });
@@ -265,7 +253,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		}
 	});
 
-	//#region Sync dark mode
+	
 	if (ColdDeviceStorage.get('syncDeviceDarkMode')) {
 		defaultStore.set('darkMode', isDeviceDarkmode());
 	}
@@ -275,7 +263,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 			defaultStore.set('darkMode', mql.matches);
 		}
 	});
-	//#endregion
+	
 
 	fetchInstanceMetaPromise.then(() => {
 		if (defaultStore.state.themeInitial) {
@@ -317,8 +305,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 	});
 
 	stream.on('emojiAdded', emojiData => {
-		// TODO
-		//store.commit('instance/set', );
+		
 	});
 
 	for (const plugin of ColdDeviceStorage.get('plugins').filter(p => p.active)) {
@@ -335,7 +322,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 	};
 
 	if ($i) {
-		// only add post shortcuts if logged in
+		
 		hotkeys['p|n'] = post;
 
 		if ($i.isDeleted) {
@@ -348,7 +335,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		const lastUsed = localStorage.getItem('lastUsed');
 		if (lastUsed) {
 			const lastUsedDate = parseInt(lastUsed, 10);
-			// 二時間以上前なら
+			
 			if (Date.now() - lastUsedDate > 1000 * 60 * 60 * 2) {
 				toast(i18n.t('welcomeBackWithName', {
 					name: $i.name || $i.username,
@@ -358,7 +345,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 		localStorage.setItem('lastUsed', Date.now().toString());
 
 		if ('Notification' in window) {
-			// 許可を得ていなかったらリクエスト
+			
 			if (Notification.permission === 'default') {
 				Notification.requestPermission();
 			}
@@ -366,7 +353,7 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 
 		const main = markRaw(stream.useChannel('main', null, 'System'));
 
-		// 自分の情報が更新されたとき
+		
 		main.on('meUpdated', i => {
 			updateAccount(i);
 		});
@@ -426,13 +413,12 @@ import { getAccountFromId } from '@/scripts/get-account-from-id';
 			sound.play('channel');
 		});
 
-		// トークンが再生成されたとき
-		// このままではMisskeyが利用できないので強制的にサインアウトさせる
+		
 		main.on('myTokenRegenerated', () => {
 			signout();
 		});
 	}
 
-	// shortcut
+	
 	document.addEventListener('keydown', makeHotkey(hotkeys));
 })();

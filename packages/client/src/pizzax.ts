@@ -20,7 +20,7 @@ export class Storage<T extends StateDef> {
 
 	public readonly def: T;
 
-	// TODO: これが実装されたらreadonlyにしたい: https://github.com/microsoft/TypeScript/issues/37487
+	
 	public readonly state: { [K in keyof T]: T[K]['default'] };
 	public readonly reactiveState: { [K in keyof T]: Ref<T[K]['default']> };
 
@@ -29,7 +29,7 @@ export class Storage<T extends StateDef> {
 		this.keyForLocalStorage = 'pizzax::' + key;
 		this.def = def;
 
-		// TODO: indexedDBにする
+		
 		const deviceState = JSON.parse(localStorage.getItem(this.keyForLocalStorage) || '{}');
 		const deviceAccountState = $i ? JSON.parse(localStorage.getItem(this.keyForLocalStorage + '::' + $i.id) || '{}') : {};
 		const registryCache = $i ? JSON.parse(localStorage.getItem(this.keyForLocalStorage + '::cache::' + $i.id) || '{}') : {};
@@ -55,7 +55,7 @@ export class Storage<T extends StateDef> {
 		this.reactiveState = reactiveState as any;
 
 		if ($i) {
-			// なぜかsetTimeoutしないとapi関数内でエラーになる(おそらく循環参照してることに原因がありそう)
+			
 			window.setTimeout(() => {
 				api('i/registry/get-all', { scope: ['client', this.key] }).then(kvs => {
 					const cache = {};
@@ -74,7 +74,7 @@ export class Storage<T extends StateDef> {
 					localStorage.setItem(this.keyForLocalStorage + '::cache::' + $i.id, JSON.stringify(cache));
 				});
 			}, 1);
-			// streamingのuser storage updateイベントを監視して更新
+			
 			connection?.on('registryUpdated', ({ scope, key, value }: { scope: string[], key: keyof T, value: T[typeof key]['default'] }) => {
 				if (scope.length !== 2 || scope[0] !== 'client' || scope[1] !== this.key || this.state[key] === value) return;
 
@@ -134,10 +134,7 @@ export class Storage<T extends StateDef> {
 		this.set(key, this.def[key].default);
 	}
 
-	/**
-	 * 特定のキーの、簡易的なgetter/setterを作ります
-	 * 主にvue場で設定コントロールのmodelとして使う用
-	 */
+	
 	public makeGetterSetter<K extends keyof T>(key: K, getter?: (v: T[K]) => unknown, setter?: (v: unknown) => T[K]) {
 		const valueRef = ref(this.state[key]);
 
@@ -145,12 +142,12 @@ export class Storage<T extends StateDef> {
 			valueRef.value = val;
 		});
 
-		// NOTE: vueコンポーネント内で呼ばれない限りは、onUnmounted は無意味なのでメモリリークする
+		
 		onUnmounted(() => {
 			stop();
 		});
 
-		// TODO: VueのcustomRef使うと良い感じになるかも
+		
 		return {
 			get: () => {
 				if (getter) {

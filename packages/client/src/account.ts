@@ -7,13 +7,13 @@ import { apiUrl } from '@/config';
 import { waiting, api, popup, popupMenu, success, alert } from '@/os';
 import { unisonReload, reloadChannel } from '@/scripts/unison-reload';
 
-// TODO: 他のタブと永続化されたstateを同期
+
 
 type Account = misskey.entities.MeDetailed;
 
 const accountData = localStorage.getItem('account');
 
-// TODO: 外部からはreadonlyに
+
 export const $i = accountData ? reactive(JSON.parse(accountData) as Account) : null;
 
 export const iAmModerator = $i != null && ($i.isAdmin || $i.isModerator);
@@ -27,7 +27,7 @@ export async function signout() {
 
 	const accounts = await getAccounts();
 
-	//#region Remove service worker registration
+	
 	try {
 		if (navigator.serviceWorker.controller) {
 			const registration = await navigator.serviceWorker.ready;
@@ -50,7 +50,7 @@ export async function signout() {
 				});
 		}
 	} catch (err) {}
-	//#endregion
+	
 
 	document.cookie = 'igi=; path=/';
 
@@ -79,7 +79,7 @@ export async function removeAccount(id: Account['id']) {
 
 function fetchAccount(token: string): Promise<Account> {
 	return new Promise((done, fail) => {
-		// Fetch user
+		
 		fetch(`${apiUrl}/i`, {
 			method: 'POST',
 			body: JSON.stringify({
@@ -125,13 +125,13 @@ export async function login(token: Account['token'], redirect?: string) {
 	if (_DEV_) console.log('logging as token ', token);
 	const me = await fetchAccount(token);
 	localStorage.setItem('account', JSON.stringify(me));
-	document.cookie = `token=${token}; path=/; max-age=31536000`; // bull dashboardの認証とかで使う
+	document.cookie = `token=${token}; path=/; max-age=31536000`; 
 	await addAccount(me.id, token);
 
 	if (redirect) {
-		// 他のタブは再読み込みするだけ
+		
 		reloadChannel.postMessage(null);
-		// このページはredirectで指定された先に移動
+		
 		location.href = redirect;
 		return;
 	}
