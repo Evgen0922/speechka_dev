@@ -104,34 +104,6 @@ export const navbarItemDef = reactive({
 		icon: 'fas fa-satellite-dish',
 		to: '/channels',
 	},
-	ui: {
-		title: 'switchUi',
-		icon: 'fas fa-columns',
-		action: (ev) => {
-			os.popupMenu([{
-				text: i18n.ts.default,
-				active: ui === 'default' || ui === null,
-				action: () => {
-					localStorage.setItem('ui', 'default');
-					unisonReload();
-				},
-			}, {
-				text: i18n.ts.deck,
-				active: ui === 'deck',
-				action: () => {
-					localStorage.setItem('ui', 'deck');
-					unisonReload();
-				},
-			}, {
-				text: i18n.ts.classic,
-				active: ui === 'classic',
-				action: () => {
-					localStorage.setItem('ui', 'classic');
-					unisonReload();
-				},
-			}], ev.currentTarget ?? ev.target);
-		},
-	},
 	reload: {
 		title: 'reload',
 		icon: 'fas fa-refresh',
