@@ -4,8 +4,7 @@ describe('Before setup instance', () => {
 	});
 
 	afterEach(() => {
-		// テスト終了直前にページ遷移するようなテストケース(例えばアカウント作成)だと、たぶんCypressのバグでブラウザの内容が次のテストケースに引き継がれてしまう(例えばアカウントが作成し終わった段階からテストが始まる)。
-		// waitを入れることでそれを防止できる
+		
 		cy.wait(1000);
 	});
 
@@ -22,8 +21,7 @@ describe('Before setup instance', () => {
 		cy.get('[data-cy-admin-password] input').type('admin1234');
 		cy.get('[data-cy-admin-ok]').click();
 
-		// なぜか動かない
-		//cy.wait('@signup').should('have.property', 'response.statusCode');
+		
 		cy.wait('@signup');
   });
 });
@@ -32,13 +30,12 @@ describe('After setup instance', () => {
 	beforeEach(() => {
 		cy.resetState();
 
-		// インスタンス初期セットアップ
+	
 		cy.registerUser('admin', 'pass', true);
 	});
 
 	afterEach(() => {
-		// テスト終了直前にページ遷移するようなテストケース(例えばアカウント作成)だと、たぶんCypressのバグでブラウザの内容が次のテストケースに引き継がれてしまう(例えばアカウントが作成し終わった段階からテストが始まる)。
-		// waitを入れることでそれを防止できる
+		
 		cy.wait(1000);
 	});
 
@@ -65,16 +62,14 @@ describe('After user signup', () => {
 	beforeEach(() => {
 		cy.resetState();
 
-		// インスタンス初期セットアップ
+	
 		cy.registerUser('admin', 'pass', true);
 
-		// ユーザー作成
 		cy.registerUser('alice', 'alice1234');
 	});
 
 	afterEach(() => {
-		// テスト終了直前にページ遷移するようなテストケース(例えばアカウント作成)だと、たぶんCypressのバグでブラウザの内容が次のテストケースに引き継がれてしまう(例えばアカウントが作成し終わった段階からテストが始まる)。
-		// waitを入れることでそれを防止できる
+		
 		cy.wait(1000);
 	});
 
@@ -89,7 +84,7 @@ describe('After user signup', () => {
 
 		cy.get('[data-cy-signin]').click();
 		cy.get('[data-cy-signin-username] input').type('alice');
-		// Enterキーでサインインできるかの確認も兼ねる
+		
 		cy.get('[data-cy-signin-password] input').type('alice1234{enter}');
 
 		cy.wait('@signin');
@@ -107,7 +102,6 @@ describe('After user signup', () => {
 		cy.get('[data-cy-signin-username] input').type('alice');
 		cy.get('[data-cy-signin-password] input').type('alice1234{enter}');
 
-		// TODO: cypressにブラウザの言語指定できる機能が実装され次第英語のみテストするようにする
 		cy.contains(/アカウントが凍結されています|This account has been suspended due to/gi);
 	});
 });
@@ -116,18 +110,15 @@ describe('After user singed in', () => {
 	beforeEach(() => {
 		cy.resetState();
 
-		// インスタンス初期セットアップ
 		cy.registerUser('admin', 'pass', true);
 
-		// ユーザー作成
 		cy.registerUser('alice', 'alice1234');
 
 		cy.login('alice', 'alice1234');
 	});
 
 	afterEach(() => {
-		// テスト終了直前にページ遷移するようなテストケース(例えばアカウント作成)だと、たぶんCypressのバグでブラウザの内容が次のテストケースに引き継がれてしまう(例えばアカウントが作成し終わった段階からテストが始まる)。
-		// waitを入れることでそれを防止できる
+		
 		cy.wait(1000);
 	});
 
@@ -137,13 +128,11 @@ describe('After user singed in', () => {
 
 	it('note', () => {
 		cy.get('[data-cy-open-post-form]').click();
-		cy.get('[data-cy-post-form-text]').type('Hello, Misskey!');
+		cy.get('[data-cy-post-form-text]').type('Hello, Speechka!');
 		cy.get('[data-cy-open-post-form-submit]').click();
 
-		cy.contains('Hello, Misskey!');
+		cy.contains('Hello, Speechka!');
   });
 });
 
-// TODO: 投稿フォームの公開範囲指定のテスト
-// TODO: 投稿フォームのファイル添付のテスト
-// TODO: 投稿フォームのハッシュタグ保持フィールドのテスト
+

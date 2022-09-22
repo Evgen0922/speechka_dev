@@ -36,7 +36,7 @@
 			<img :src="$instance.iconUrl || $instance.faviconUrl || '/favicon.ico'" class="_ghost"/>
 		</MkA>
 	</div>
-	<!--<MisskeyLogo class="misskey"/>-->
+	
 </div>
 </template>
 
@@ -49,12 +49,12 @@ import { navbarItemDef } from '@/navbar';
 import { openAccountMenu } from '@/account';
 import MkButton from '@/components/MkButton.vue';
 import { StickySidebar } from '@/scripts/sticky-sidebar';
-//import MisskeyLogo from '@assets/client/misskey.svg';
+
 
 export default defineComponent({
 	components: {
 		MkButton,
-		//MisskeyLogo,
+		
 	},
 
 	data() {

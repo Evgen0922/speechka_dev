@@ -48,7 +48,7 @@ function onMouseout() {
 function onDragover(ev: DragEvent) {
 	if (!ev.dataTransfer) return;
 
-	// このフォルダがルートかつカレントディレクトリならドロップ禁止
+	
 	if (props.folder == null && props.parentFolder == null) {
 		ev.dataTransfer.dropEffect = 'none';
 	}

@@ -19,10 +19,10 @@
 
 			<FormSection>
 				<MkKeyValue class="_formBlock" :copy="version">
-					<template #key>Misskey</template>
+					<template #key>Speechka</template>
 					<template #value>{{ version }}</template>
 				</MkKeyValue>
-				<FormLink to="/about-misskey">{{ i18n.ts.aboutMisskey }}</FormLink>
+				<FormLink to="/about-speechka">{{ i18n.ts.aboutMisskey }}</FormLink>
 			</FormSection>
 
 			<FormSection>
@@ -55,7 +55,7 @@
 				</FormSection>
 			</FormSuspense>
 
-			<FormSection>
+			<!-- <FormSection>
 				<template #label>Well-known resources</template>
 				<div class="_formLinks">
 					<FormLink :to="`/.well-known/host-meta`" external>host-meta</FormLink>
@@ -64,7 +64,7 @@
 					<FormLink :to="`/robots.txt`" external>robots.txt</FormLink>
 					<FormLink :to="`/manifest.json`" external>manifest.json</FormLink>
 				</div>
-			</FormSection>
+			</FormSection> -->
 		</div>
 	</MkSpacer>
 	<MkSpacer v-else-if="tab === 'emojis'" :content-max="1000" :margin-min="20">
@@ -118,11 +118,13 @@ const headerTabs = $computed(() => [{
 	key: 'emojis',
 	title: i18n.ts.customEmojis,
 	icon: 'fas fa-laugh',
-}, {
-	key: 'federation',
-	title: i18n.ts.federation,
-	icon: 'fas fa-globe',
-}, {
+}, 
+// {
+// 	key: 'federation',
+// 	title: i18n.ts.federation,
+// 	icon: 'fas fa-globe',
+// }, 
+{
 	key: 'charts',
 	title: i18n.ts.charts,
 	icon: 'fas fa-chart-simple',

@@ -132,7 +132,7 @@ export default defineComponent({
 				text: this.$ts.aboutMisskey,
 				icon: 'fas fa-info-circle',
 				action: () => {
-					os.pageWindow('/about-misskey');
+					os.pageWindow('/about-speechka');
 				}
 			}, null, {
 				text: this.$ts.help,

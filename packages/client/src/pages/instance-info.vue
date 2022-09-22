@@ -65,14 +65,14 @@
 				</MkKeyValue>
 			</FormSection>
 
-			<FormSection>
+			<!-- <FormSection>
 				<template #label>Well-known resources</template>
 				<FormLink :to="`https://${host}/.well-known/host-meta`" external style="margin-bottom: 8px;">host-meta</FormLink>
 				<FormLink :to="`https://${host}/.well-known/host-meta.json`" external style="margin-bottom: 8px;">host-meta.json</FormLink>
 				<FormLink :to="`https://${host}/.well-known/nodeinfo`" external style="margin-bottom: 8px;">nodeinfo</FormLink>
 				<FormLink :to="`https://${host}/robots.txt`" external style="margin-bottom: 8px;">robots.txt</FormLink>
 				<FormLink :to="`https://${host}/manifest.json`" external style="margin-bottom: 8px;">manifest.json</FormLink>
-			</FormSection>
+			</FormSection> -->
 		</div>
 		<div v-else-if="tab === 'chart'" class="_formRoot">
 			<div class="cmhjzshl">

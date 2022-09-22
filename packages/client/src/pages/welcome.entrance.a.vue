@@ -18,7 +18,7 @@
 			<button class="_button _acrylic menu" @click="showMenu"><i class="fas fa-ellipsis-h"></i></button>
 			<div class="fg">
 				<h1>
-					<!-- 背景色によってはロゴが見えなくなるのでとりあえず無効に -->
+					
 					<!-- <img class="logo" v-if="meta.logoImageUrl" :src="meta.logoImageUrl"><span v-else class="text">{{ instanceName }}</span> -->
 					<span class="text">{{ instanceName }}</span>
 				</h1>
@@ -115,7 +115,7 @@ function showMenu(ev) {
 		text: i18n.ts.aboutMisskey,
 		icon: 'fas fa-info-circle',
 		action: () => {
-			os.pageWindow('/about-misskey');
+			os.pageWindow('/about-speechka');
 		},
 	}, null, {
 		text: i18n.ts.help,
@@ -140,7 +140,7 @@ function showMenu(ev) {
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 80%; // 100%からshapeの幅を引いている
+			width: 80%; 
 			height: 100%;
 		}
 

@@ -195,8 +195,8 @@ export const routes = [{
 	component: page(() => import('./pages/about.vue')),
 	hash: 'initialTab',
 }, {
-	path: '/about-misskey',
-	component: page(() => import('./pages/about-misskey.vue')),
+	path: '/about-speechka',
+	component: page(() => import('./pages/about-speechka.vue')),
 }, {
 	path: '/theme-editor',
 	component: page(() => import('./pages/theme-editor.vue')),
@@ -381,10 +381,6 @@ export const routes = [{
 		component: page(() => import('./pages/_empty_.vue')),
 	}],
 }, {
-	path: '/my/notifications',
-	component: page(() => import('./pages/notifications.vue')),
-	loginRequired: true,
-}, {
 	path: '/my/favorites',
 	component: page(() => import('./pages/favorites.vue')),
 	loginRequired: true,
@@ -400,6 +396,10 @@ export const routes = [{
 }, {
 	path: '/my/messaging/group/:groupId',
 	component: page(() => import('./pages/messaging/messaging-room.vue')),
+	loginRequired: true,
+}, {
+	path: '/my/notifications',
+	component: page(() => import('./pages/notifications.vue')),
 	loginRequired: true,
 }, {
 	path: '/my/drive/folder/:folder',

@@ -24,10 +24,10 @@
 							{{ i18n.ts._aboutMisskey.source }}
 							<template #suffix>GitHub</template>
 						</FormLink>
-						<FormLink to="https://www.patreon.com/" external>
+						<FormLink to="ko-fi.com/kevgen" external>
 							<template #icon><i class="fas fa-hand-holding-medical"></i></template>
 							{{ i18n.ts._aboutMisskey.donate }}
-							<template #suffix>Patreon</template>
+							<template #suffix>Ko-Fi</template>
 						</FormLink>
 					</div>
 				</FormSection>

@@ -15,7 +15,7 @@ import copyToClipboard from '@/scripts/copy-to-clipboard';
 import { i18n } from '@/i18n';
 
 const props = defineProps<{
-	emoji: Record<string, unknown>; // TODO
+	emoji: Record<string, unknown>; 
 }>();
 
 function menu(ev) {

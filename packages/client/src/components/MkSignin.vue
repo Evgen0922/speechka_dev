@@ -8,7 +8,7 @@
 		<div v-if="!totpLogin" class="normal-signin">
 			<MkInput v-model="username" class="_formBlock" :placeholder="i18n.ts.username" type="text" pattern="^[a-zA-Z0-9_]+$" :spellcheck="false" autofocus required data-cy-signin-username @update:modelValue="onUsernameChange">
 				<template #prefix>@</template>
-				<template #suffix>@{{ host }}</template>
+				<!-- <template #suffix>@{{ host }}</template> -->
 			</MkInput>
 			<MkInput v-if="!user || user && !user.usePasswordLessLogin" v-model="password" class="_formBlock" :placeholder="i18n.ts.password" type="password" :with-password-toggle="true" required data-cy-signin-password>
 				<template #prefix><i class="fas fa-lock"></i></template>

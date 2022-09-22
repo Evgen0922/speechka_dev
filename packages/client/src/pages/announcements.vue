@@ -31,7 +31,6 @@ const pagination = {
 	limit: 10,
 };
 
-// TODO: これは実質的に親コンポーネントから子コンポーネントのプロパティを変更してるのでなんとかしたい
 function read(items, announcement, i) {
 	items[i] = {
 		...announcement,

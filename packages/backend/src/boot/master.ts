@@ -36,8 +36,8 @@ function greet() {
 		console.log(' ' + chalk.gray(v) + themeColor('                        |___|\n'.substr(v.length)));
 		
 
-		console.log(' Misskey is an open-source decentralized microblogging platform.');
-		console.log(chalk.rgb(255, 136, 0)(' If you like Misskey, please donate to support development. https://www.patreon.com/'));
+		console.log(' Speechka is an microblogging platform.');
+		console.log(chalk.rgb(255, 136, 0)(' If you like Speechka, please donate to support development. ko-fi.com/kevgen'));
 
 		console.log('');
 		console.log(chalkTemplate`--- ${os.hostname()} {gray (PID: ${process.pid.toString()})} ---`);

@@ -278,13 +278,13 @@ export class ColdDeviceStorage {
 		plugins: [] as Plugin[],
 		mediaVolume: 0.5,
 		sound_masterVolume: 0.3,
-		sound_note: { type: 'syuilo/down', volume: 1 },
-		sound_noteMy: { type: 'syuilo/up', volume: 1 },
-		sound_notification: { type: 'syuilo/pope2', volume: 1 },
-		sound_chat: { type: 'syuilo/pope1', volume: 1 },
-		sound_chatBg: { type: 'syuilo/waon', volume: 1 },
-		sound_antenna: { type: 'syuilo/triple', volume: 1 },
-		sound_channel: { type: 'syuilo/square-pico', volume: 1 },
+		sound_note: { type: 'evgen/down', volume: 1 },
+		sound_noteMy: { type: 'evgen/up', volume: 1 },
+		sound_notification: { type: 'evgen/pope2', volume: 1 },
+		sound_chat: { type: 'evgen/pope1', volume: 1 },
+		sound_chatBg: { type: 'evgen/waon', volume: 1 },
+		sound_antenna: { type: 'evgen/triple', volume: 1 },
+		sound_channel: { type: 'evgen/square-pico', volume: 1 },
 	};
 
 	public static watchers = [];

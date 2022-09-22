@@ -131,13 +131,12 @@ const selectedFiles = ref<Misskey.entities.DriveFile[]>([]);
 const selectedFolders = ref<Misskey.entities.DriveFolder[]>([]);
 const uploadings = uploads;
 const connection = stream.useChannel('drive');
-const keepOriginal = ref<boolean>(defaultStore.state.keepOriginalUploading); // 外部渡しが多いので$refは使わないほうがよい
+const keepOriginal = ref<boolean>(defaultStore.state.keepOriginalUploading); 
 
-// ドロップされようとしているか
+
 const draghover = ref(false);
 
-// 自身の所有するアイテムがドラッグをスタートさせたか
-// (自分自身の階層にドロップできないようにするためのフラグ)
+
 const isDragSource = ref(false);
 
 const fetching = ref(true);
@@ -185,9 +184,9 @@ function onStreamDriveFolderDeleted(folderId: string) {
 function onDragover(ev: DragEvent): any {
 	if (!ev.dataTransfer) return;
 
-	// ドラッグ元が自分自身の所有するアイテムだったら
+	
 	if (isDragSource.value) {
-		// 自分自身にはドロップさせない
+		
 		ev.dataTransfer.dropEffect = 'none';
 		return;
 	}
@@ -217,7 +216,7 @@ function onDrop(ev: DragEvent): any {
 
 	if (!ev.dataTransfer) return;
 
-	// ドロップされてきたものがファイルだったら
+	
 	if (ev.dataTransfer.files.length > 0) {
 		for (const file of Array.from(ev.dataTransfer.files)) {
 			upload(file, folder.value);
@@ -225,7 +224,7 @@ function onDrop(ev: DragEvent): any {
 		return;
 	}
 
-	//#region ドライブのファイル
+	
 	const driveFile = ev.dataTransfer.getData(_DATA_TRANSFER_DRIVE_FILE_);
 	if (driveFile != null && driveFile !== '') {
 		const file = JSON.parse(driveFile);
@@ -238,12 +237,12 @@ function onDrop(ev: DragEvent): any {
 	}
 	//#endregion
 
-	//#region ドライブのフォルダ
+	
 	const driveFolder = ev.dataTransfer.getData(_DATA_TRANSFER_DRIVE_FOLDER_);
 	if (driveFolder != null && driveFolder !== '') {
 		const droppedFolder = JSON.parse(driveFolder);
 
-		// 移動先が自分自身ならreject
+		
 		if (folder.value && droppedFolder.id === folder.value.id) return false;
 		if (folders.value.some(f => f.id === droppedFolder.id)) return false;
 		removeFolder(droppedFolder.id);
@@ -320,7 +319,7 @@ function renameFolder(folderToRename: Misskey.entities.DriveFolder) {
 			folderId: folderToRename.id,
 			name: name,
 		}).then(updatedFolder => {
-			// FIXME: 画面を更新するために自分自身に移動
+			
 			move(updatedFolder);
 		});
 	});
@@ -330,7 +329,7 @@ function deleteFolder(folderToDelete: Misskey.entities.DriveFolder) {
 	os.api('drive/folders/delete', {
 		folderId: folderToDelete.id,
 	}).then(() => {
-		// 削除時に親フォルダに移動
+		
 		move(folderToDelete.parentId);
 	}).catch(err => {
 		switch (err.id) {
@@ -490,7 +489,7 @@ function prependFolder(folderToPrepend: Misskey.entities.DriveFolder) {
 }
 */
 function goRoot() {
-	// 既にrootにいるなら何もしない
+	
 	if (folder.value == null) return;
 
 	folder.value = null;
@@ -545,7 +544,7 @@ function fetchMoreFiles() {
 
 	const max = 30;
 
-	// ファイル一覧取得
+	
 	os.api('drive/files', {
 		folderId: folder.value ? folder.value.id : null,
 		type: props.type,
