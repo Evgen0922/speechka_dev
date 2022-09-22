@@ -69,7 +69,7 @@ export async function getFileInfo(path: string, opts: {
 			return undefined;
 		});
 
-		// うまく判定できない画像は octet-stream にする
+		
 		if (!imageSize) {
 			warnings.push('cannot detect image dimensions');
 			type = TYPE_OCTET_STREAM;
@@ -78,7 +78,7 @@ export async function getFileInfo(path: string, opts: {
 			height = imageSize.height;
 			orientation = imageSize.orientation;
 
-			// 制限を超えている画像は octet-stream にする
+			
 			if (imageSize.width > 16383 || imageSize.height > 16383) {
 				warnings.push('image dimensions exceeds limits');
 				type = TYPE_OCTET_STREAM;
@@ -156,30 +156,30 @@ async function detectSensitivity(source: string, mime: string, sensitiveThreshol
 			const command = FFmpeg()
 				.input(source)
 				.inputOptions([
-					'-skip_frame', 'nokey', // 可能ならキーフレームのみを取得してほしいとする（そうなるとは限らない）
-					'-lowres', '3', // 元の画質でデコードする必要はないので 1/8 画質でデコードしてもよいとする（そうなるとは限らない）
+					'-skip_frame', 'nokey', 
+					'-lowres', '3', 
 				])
 				.noAudio()
 				.videoFilters([
 					{
-						filter: 'select', // フレームのフィルタリング
+						filter: 'select', 
 						options: {
-							e: 'eq(pict_type,PICT_TYPE_I)', // I-Frame のみをフィルタする（VP9 とかはデコードしてみないとわからないっぽい）
+							e: 'eq(pict_type,PICT_TYPE_I)', 
 						},
 					},
 					{
-						filter: 'blackframe', // 暗いフレームの検出
+						filter: 'blackframe', 
 						options: {
-							amount: '0', // 暗さに関わらず全てのフレームで測定値を取る
+							amount: '0', 
 						},
 					},
 					{
 						filter: 'metadata',
 						options: {
-							mode: 'select', // フレーム選択モード
-							key: 'lavfi.blackframe.pblack', // フレームにおける暗部の百分率（前のフィルタからのメタデータを参照する）
+							mode: 'select', 
+							key: 'lavfi.blackframe.pblack', 
 							value: '50',
-							function: 'less', // 50% 未満のフレームを選択する（50% 以上暗部があるフレームだと誤検知を招くかもしれないので）
+							function: 'less', 
 						},
 					},
 					{
@@ -192,7 +192,7 @@ async function detectSensitivity(source: string, mime: string, sensitiveThreshol
 				])
 				.format('image2')
 				.output(join(outDir, '%d.png'))
-				.outputOptions(['-vsync', '0']); // 可変フレームレートにすることで穴埋めをさせない
+				.outputOptions(['-vsync', '0']); 
 			const results: ReturnType<typeof judgePrediction>[] = [];
 			let frameIndex = 0;
 			let targetIndex = 0;
@@ -204,7 +204,7 @@ async function detectSensitivity(source: string, mime: string, sensitiveThreshol
 						continue;
 					}
 					targetIndex = nextIndex;
-					nextIndex += index; // fibonacci sequence によってフレーム数制限を掛ける
+					nextIndex += index; 
 					const result = await detectSensitive(path);
 					if (result) {
 						results.push(judgePrediction(result));
@@ -234,23 +234,23 @@ async function* asyncIterateFrames(cwd: string, command: FFmpeg.FfmpegCommand): 
 		watcher.close();
 	});
 	command.run();
-	for (let i = 1; true; i++) { // eslint-disable-line @typescript-eslint/no-unnecessary-condition
+	for (let i = 1; true; i++) { 
 		const current = `${i}.png`;
 		const next = `${i + 1}.png`;
 		const framePath = join(cwd, current);
 		if (await exists(join(cwd, next))) {
 			yield framePath;
-		} else if (!finished) { // eslint-disable-line @typescript-eslint/no-unnecessary-condition
+		} else if (!finished) { 
 			watcher.add(next);
 			await new Promise<void>((resolve, reject) => {
 				watcher.on('add', function onAdd(path) {
-					if (path === next) { // 次フレームの書き出しが始まっているなら、現在フレームの書き出しは終わっている
+					if (path === next) { 
 						watcher.unwatch(current);
 						watcher.off('add', onAdd);
 						resolve();
 					}
 				});
-				command.once('end', resolve); // 全てのフレームを処理し終わったなら、最終フレームである現在フレームの書き出しは終わっている
+				command.once('end', resolve); 
 				command.once('error', reject);
 			});
 			yield framePath;
@@ -282,7 +282,7 @@ export async function detectType(path: string): Promise<{
 	const type = await fileTypeFromFile(path);
 
 	if (type) {
-		// XMLはSVGかもしれない
+		
 		if (type.mime === 'application/xml' && await checkSvg(path)) {
 			return TYPE_SVG;
 		}
@@ -293,12 +293,12 @@ export async function detectType(path: string): Promise<{
 		};
 	}
 
-	// 種類が不明でもSVGかもしれない
+	
 	if (await checkSvg(path)) {
 		return TYPE_SVG;
 	}
 
-	// それでも種類が不明なら application/octet-stream にする
+	
 	return TYPE_OCTET_STREAM;
 }
 

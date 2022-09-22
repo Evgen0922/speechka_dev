@@ -33,7 +33,7 @@ app.use(async (ctx, next) => {
 });
 
 app.use(bodyParser({
-	// リクエストが multipart/form-data でない限りはJSONだと見なす
+	
 	detectJSON: ctx => !ctx.is('multipart/form-data'),
 }));
 
@@ -56,7 +56,7 @@ for (const endpoint of endpoints) {
 	if (endpoint.meta.requireFile) {
 		router.post(`/${endpoint.name}`, upload.single('file'), handler.bind(null, endpoint));
 	} else {
-		// 後方互換性のため
+		
 		if (endpoint.name.includes('-')) {
 			router.post(`/${endpoint.name.replace(/-/g, '_')}`, handler.bind(null, endpoint));
 

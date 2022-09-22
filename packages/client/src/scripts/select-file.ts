@@ -20,15 +20,14 @@ function select(src: any, label: string | null, multiple: boolean): Promise<Driv
 				Promise.all(promises).then(driveFiles => {
 					res(multiple ? driveFiles : driveFiles[0]);
 				}).catch(err => {
-					// アップロードのエラーは uploadFile 内でハンドリングされているためアラートダイアログを出したりはしてはいけない
+					
 				});
 
-				// 一応廃棄
+				
 				(window as any).__misskey_input_ref__ = null;
 			};
 
-			// https://qiita.com/fukasawah/items/b9dc732d95d99551013d
-			// iOS Safari で正常に動かす為のおまじない
+			
 			(window as any).__misskey_input_ref__ = input;
 
 			input.click();
@@ -48,8 +47,7 @@ function select(src: any, label: string | null, multiple: boolean): Promise<Driv
 			}).then(({ canceled, result: url }) => {
 				if (canceled) return;
 
-				const marker = Math.random().toString(); // TODO: UUIDとか使う
-
+				const marker = Math.random().toString(); 
 				const connection = stream.useChannel('main');
 				connection.on('urlUploadFinished', urlResponse => {
 					if (urlResponse.marker === marker) {

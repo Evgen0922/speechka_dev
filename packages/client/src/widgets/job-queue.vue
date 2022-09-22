@@ -69,7 +69,6 @@ const widgetPropsDef = {
 
 type WidgetProps = GetFormResultType<typeof widgetPropsDef>;
 
-// 現時点ではvueの制限によりimportしたtypeをジェネリックに渡せない
 //const props = defineProps<WidgetComponentProps<WidgetProps>>();
 //const emit = defineEmits<WidgetComponentEmits<WidgetProps>>();
 const props = defineProps<{ widget?: Widget<WidgetProps>; }>();
@@ -97,7 +96,7 @@ const current = reactive({
 	},
 });
 const prev = reactive({} as typeof current);
-const jammedSound = sound.setVolume(sound.getAudio('syuilo/queue-jammed'), 1);
+const jammedSound = sound.setVolume(sound.getAudio('evgen/queue-jammed'), 1);
 
 for (const domain of ['inbox', 'deliver']) {
 	prev[domain] = JSON.parse(JSON.stringify(current[domain]));

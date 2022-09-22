@@ -49,7 +49,7 @@
 			<button v-tooltip="i18n.ts.attachFile" class="_button" @click="chooseFileFrom"><i class="fas fa-photo-video"></i></button>
 			<button v-tooltip="i18n.ts.poll" class="_button" :class="{ active: poll }" @click="togglePoll"><i class="fas fa-poll-h"></i></button>
 			<button v-tooltip="i18n.ts.useCw" class="_button" :class="{ active: useCw }" @click="useCw = !useCw"><i class="fas fa-eye-slash"></i></button>
-			<button v-tooltip="i18n.ts.mention" class="_button" @click="insertMention"><i class="fas fa-at"></i></button>
+			<!-- <button v-tooltip="i18n.ts.mention" class="_button" @click="insertMention"><i class="fas fa-at"></i></button> -->
 			<button v-tooltip="i18n.ts.hashtags" class="_button" :class="{ active: withHashtags }" @click="withHashtags = !withHashtags"><i class="fas fa-hashtag"></i></button>
 			<button v-tooltip="i18n.ts.emoji" class="_button" @click="insertEmoji"><i class="fas fa-laugh-squint"></i></button>
 			<button v-if="postFormActions.length > 0" v-tooltip="i18n.ts.plugin" class="_button" @click="showActions"><i class="fas fa-plug"></i></button>
@@ -258,7 +258,6 @@ if (props.channel) {
 	localOnly = true; //
 }
 
-// 
 if (props.reply && ['home', 'followers', 'specified'].includes(props.reply.visibility)) {
 	visibility = props.reply.visibility;
 	if (props.reply.visibility === 'specified') {
@@ -508,14 +507,14 @@ function onDragleave(ev) {
 function onDrop(ev): void {
 	draghover = false;
 
-	// ファイルだったら
+	
 	if (ev.dataTransfer.files.length > 0) {
 		ev.preventDefault();
 		for (const x of Array.from(ev.dataTransfer.files)) upload(x);
 		return;
 	}
 
-	//#region ドライブのファイル
+	//#region 
 	const driveFile = ev.dataTransfer.getData(_DATA_TRANSFER_DRIVE_FILE_);
 	if (driveFile != null && driveFile !== '') {
 		const file = JSON.parse(driveFile);
