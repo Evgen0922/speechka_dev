@@ -7,7 +7,7 @@ import { publishAntennaStream, publishMainStream } from '@/services/stream.js';
 import { User } from '@/models/entities/user.js';
 
 export async function addNoteToAntenna(antenna: Antenna, note: Note, noteUser: { id: User['id']; }) {
-	// 通知しない設定になっているか、自分自身の投稿なら既読にする
+	
 	const read = !antenna.notify || (antenna.userId === noteUser.id);
 
 	AntennaNotes.insert({

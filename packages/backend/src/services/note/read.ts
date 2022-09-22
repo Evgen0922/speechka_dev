@@ -50,7 +50,7 @@ export default async function(
 			readChannelNotes.push(note);
 		}
 
-		if (note.user != null) { // たぶんnullになることは無いはずだけど一応
+		if (note.user != null) { 
 			for (const antenna of myAntennas) {
 				if (await checkHitAntenna(antenna, note, note.user, undefined, Array.from(following))) {
 					readAntennaNotes.push(note);
@@ -66,14 +66,14 @@ export default async function(
 			noteId: In([...readMentions.map(n => n.id), ...readSpecifiedNotes.map(n => n.id), ...readChannelNotes.map(n => n.id)]),
 		});
 
-		// TODO: ↓まとめてクエリしたい
+		
 
 		NoteUnreads.countBy({
 			userId: userId,
 			isMentioned: true,
 		}).then(mentionsCount => {
 			if (mentionsCount === 0) {
-				// 全て既読になったイベントを発行
+				
 				publishMainStream(userId, 'readAllUnreadMentions');
 			}
 		});
@@ -83,7 +83,7 @@ export default async function(
 			isSpecified: true,
 		}).then(specifiedCount => {
 			if (specifiedCount === 0) {
-				// 全て既読になったイベントを発行
+				
 				publishMainStream(userId, 'readAllUnreadSpecifiedNotes');
 			}
 		});
@@ -93,7 +93,7 @@ export default async function(
 			noteChannelId: Not(IsNull()),
 		}).then(channelNoteCount => {
 			if (channelNoteCount === 0) {
-				// 全て既読になったイベントを発行
+				
 				publishMainStream(userId, 'readAllChannels');
 			}
 		});
@@ -111,7 +111,7 @@ export default async function(
 			read: true,
 		});
 
-		// TODO: まとめてクエリしたい
+		
 		for (const antenna of myAntennas) {
 			const count = await AntennaNotes.countBy({
 				antennaId: antenna.id,
