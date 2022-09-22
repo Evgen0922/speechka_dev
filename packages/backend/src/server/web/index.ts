@@ -495,7 +495,7 @@ router.get('/flush', async ctx => {
 	await ctx.render('flush');
 });
 
-// streamingに非WebSocketリクエストが来た場合にbase htmlをキャシュ付きで返すと、Proxy等でそのパスがキャッシュされておかしくなる
+
 router.get('/streaming', async ctx => {
 	ctx.status = 503;
 	ctx.set('Cache-Control', 'private, max-age=0');
@@ -506,8 +506,8 @@ router.get('(.*)', async ctx => {
 	const meta = await fetchMeta();
 	await ctx.render('base', {
 		img: meta.bannerUrl,
-		title: meta.name || 'Misskey',
-		instanceName: meta.name || 'Misskey',
+		title: meta.name || 'Speechka',
+		instanceName: meta.name || 'Speechka',
 		desc: meta.description,
 		icon: meta.iconUrl,
 		themeColor: meta.themeColor,

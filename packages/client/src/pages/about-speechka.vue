@@ -24,7 +24,7 @@
 							{{ i18n.ts._aboutMisskey.source }}
 							<template #suffix>GitHub</template>
 						</FormLink>
-						<FormLink to="ko-fi.com/kevgen" external>
+						<FormLink to="https://ko-fi.com/kevgen" external>
 							<template #icon><i class="fas fa-hand-holding-medical"></i></template>
 							{{ i18n.ts._aboutMisskey.donate }}
 							<template #suffix>Ko-Fi</template>
