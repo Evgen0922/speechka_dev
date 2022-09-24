@@ -54,13 +54,13 @@
 	<FormSection>
 		<div class="_formLinksGrid">
 			<FormLink to="/settings/theme/manage"><template #icon><i class="fas fa-folder-open"></i></template>{{ i18n.ts._theme.manage }}<template #suffix>{{ themesCount }}</template></FormLink>
-			<!-- <FormLink to="https://assets.misskey.io/theme/list" external><template #icon><i class="fas fa-globe"></i></template>{{ i18n.ts._theme.explore }}</FormLink> -->
+			<FormLink to="https://github.com/Evgen0922/speechka_dev" external><template #icon><i class="fas fa-globe"></i></template>{{ i18n.ts._theme.explore }}</FormLink>
 			<FormLink to="/settings/theme/install"><template #icon><i class="fas fa-download"></i></template>{{ i18n.ts._theme.install }}</FormLink>
 			<FormLink to="/theme-editor"><template #icon><i class="fas fa-paint-roller"></i></template>{{ i18n.ts._theme.make }}</FormLink>
 		</div>
 	</FormSection>
 
-	<!-- <FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton> -->
+	<FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton>
 	<FormButton v-else class="_formBlock" @click="wallpaper = null">{{ i18n.ts.removeWallpaper }}</FormButton>
 </div>
 </template>
@@ -101,7 +101,7 @@ const darkThemeId = computed({
 	},
 	set(id) {
 		const t = themes.value.find(x => x.id === id);
-		if (t) { // テーマエディタでテーマを作成したときなどは、themesに反映されないため undefined になる
+		if (t) { 
 			ColdDeviceStorage.set('darkTheme', t);
 		}
 	},
@@ -113,7 +113,7 @@ const lightThemeId = computed({
 	},
 	set(id) {
 		const t = themes.value.find(x => x.id === id);
-		if (t) { // テーマエディタでテーマを作成したときなどは、themesに反映されないため undefined になる
+		if (t) { 
 			ColdDeviceStorage.set('lightTheme', t);
 		}
 	},
@@ -148,11 +148,11 @@ fetchThemes().then(() => {
 	installedThemes.value = getThemes();
 });
 
-// function setWallpaper(event) {
-// 	selectFile(event.currentTarget ?? event.target, null).then(file => {
-// 		wallpaper.value = file.url;
-// 	});
-// }
+function setWallpaper(event) {
+	selectFile(event.currentTarget ?? event.target, null).then(file => {
+		wallpaper.value = file.url;
+	});
+}
 
 const headerActions = $computed(() => []);
 
