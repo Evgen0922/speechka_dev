@@ -5,9 +5,9 @@
 		<option v-for="x in langs" :key="x[0]" :value="x[0]">{{ x[1] }}</option>
 		<template #caption>
 			<I18n :src="i18n.ts.i18nInfo" tag="span">
-				<template #link>
+				<!-- <template #link>
 					<MkLink url="https://crowdin.com/project/misskey">Crowdin</MkLink>
-				</template>
+				</template> -->
 			</I18n>
 		</template>
 	</FormSelect>
