@@ -60,7 +60,7 @@
 		</div>
 	</FormSection>
 
-	<FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton>
+	<!-- <FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton> -->
 	<FormButton v-else class="_formBlock" @click="wallpaper = null">{{ i18n.ts.removeWallpaper }}</FormButton>
 </div>
 </template>
@@ -148,11 +148,11 @@ fetchThemes().then(() => {
 	installedThemes.value = getThemes();
 });
 
-function setWallpaper(event) {
-	selectFile(event.currentTarget ?? event.target, null).then(file => {
-		wallpaper.value = file.url;
-	});
-}
+// function setWallpaper(event) {
+// 	selectFile(event.currentTarget ?? event.target, null).then(file => {
+// 		wallpaper.value = file.url;
+// 	});
+// }
 
 const headerActions = $computed(() => []);
 
