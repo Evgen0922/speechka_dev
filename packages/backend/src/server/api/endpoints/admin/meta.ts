@@ -61,7 +61,7 @@ export const meta = {
 			errorImageUrl: {
 				type: 'string',
 				optional: false, nullable: false,
-				default: 'https://xn--931a.moe/aiart/yubitun.png',
+				default: '',
 			},
 			iconUrl: {
 				type: 'string',

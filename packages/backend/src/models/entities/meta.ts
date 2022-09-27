@@ -122,7 +122,7 @@ export class Meta {
 	@Column('varchar', {
 		length: 512,
 		nullable: true,
-		default: 'https://xn--931a.moe/aiart/yubitun.png',
+		default: '',
 	})
 	public errorImageUrl: string | null;
 

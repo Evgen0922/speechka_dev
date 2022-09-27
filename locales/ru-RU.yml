@@ -1,5 +1,9 @@
 ---
 _lang_: "Русский"
+ _actions:
+    followBack: "подписаться в ответ"
+    reply: "Ответить"
+    renote: "Переименовать"
 logoutConfirm: "Действительно выйти?"
 _preferencesBackups:
   list: "Существующие резервные копии"
@@ -1638,7 +1642,7 @@ _notification:
   youGotPoll: "{name} участвует в вашем опросе."
   youGotMessagingMessageFromUser: "{name} пишет вам."
   youGotMessagingMessageFromGroup: "Новое сообщение в группе «{name}»."
-  youWereFollowed: "У вас новый подписчик."
+  youWereFollowed: "{name} подписался на Вас."
   youReceivedFollowRequest: "У вас новый запрос на подписку."
   yourFollowRequestAccepted: "Ваш запрос на подписку одобрен."
   youWereInvitedToGroup: "Вы приглашены в группу."

@@ -41,11 +41,11 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 		case 'notification':
 			switch (data.body.type) {
 				case 'follow':
-					// users/showの型定義をswos.apiへ当てはめるのが困難なのでapiFetch.requestを直接使用
+					
 					const account = await getAccountFromId(data.userId);
 					if (!account) return null;
 					const userDetail = await cli.request('users/show', { userId: data.body.userId }, account.token);
-					return [t('_notification.youWereFollowed'), {
+					return [t('_notification.youWereFollowed', { name: getUserName(data.body.user) }), {
 						body: getUserName(data.body.user),
 						icon: data.body.user.avatarUrl,
 						badge: iconUrl('user-plus'),
@@ -125,7 +125,7 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 					let badge: string | undefined;
 
 					if (reaction.startsWith(':')) {
-						// カスタム絵文字の場合
+						
 						const customEmoji = data.body.note.emojis.find(x => x.name === reaction.substr(1, reaction.length - 2));
 						if (customEmoji) {
 							if (reaction.includes('@')) {
@@ -134,11 +134,11 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 
 							const u = new URL(customEmoji.url);
 							if (u.href.startsWith(`${origin}/proxy/`)) {
-								// もう既にproxyっぽそうだったらsearchParams付けるだけ
+								
 								u.searchParams.set('badge', '1');
 								badge = u.href;
 							} else {
-								const dummy = `${u.host}${u.pathname}`;	// 拡張子がないとキャッシュしてくれないCDNがあるので
+								const dummy = `${u.host}${u.pathname}`;	
 								badge = `${origin}/proxy/${dummy}?${url.query({
 									url: u.href,
 									badge: '1'
@@ -146,7 +146,7 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 							}
 						}
 					} else {
-						// Unicode絵文字の場合
+						
 						badge = `/twemoji-badge/${char2fileName(reaction)}.png`;
 					}
 
@@ -239,7 +239,7 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 		case 'unreadMessagingMessage':
 			if (data.body.groupId === null) {
 				return [t('_notification.youGotMessagingMessageFromUser', { name: getUserName(data.body.user) }), {
-					icon: data.body.user.avatarUrl,
+					// icon: data.body.user.avatarUrl,
 					badge: iconUrl('comments'),
 					tag: `messaging:user:${data.body.userId}`,
 					data,

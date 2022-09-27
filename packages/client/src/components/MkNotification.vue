@@ -15,7 +15,7 @@
 			<i v-else-if="notification.type === 'quote'" class="fas fa-quote-left"></i>
 			<i v-else-if="notification.type === 'pollVote'" class="fas fa-poll-h"></i>
 			<i v-else-if="notification.type === 'pollEnded'" class="fas fa-poll-h"></i>
-			<!-- notification.reaction が null になることはまずないが、ここでoptional chaining使うと一部ブラウザで刺さるので念の為 -->
+		
 			<XReactionIcon
 				v-else-if="notification.type === 'reaction'"
 				ref="reactionRef"
