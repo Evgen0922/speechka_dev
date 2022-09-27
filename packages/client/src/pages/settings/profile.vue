@@ -32,7 +32,7 @@
 		<option v-for="x in Object.keys(langmap)" :key="x" :value="x">{{ langmap[x].nativeName }}</option>
 	</FormSelect>
 
-	<FormSlot class="_formBlock">
+	<!-- <FormSlot class="_formBlock">
 		<FormFolder>
 			<template #icon><i class="fas fa-table-list"></i></template>
 			<template #label>{{ i18n.ts._profile.metadataEdit }}</template>
@@ -51,7 +51,7 @@
 			</div>
 		</FormFolder>
 		<template #caption>{{ i18n.ts._profile.metadataDescription }}</template>
-	</FormSlot>
+	</FormSlot> -->
 
 	<!-- <FormSwitch v-model="profile.isCat" class="_formBlock">{{ i18n.ts.flagAsCat }}<template #caption>{{ i18n.ts.flagAsCatDescription }}</template></FormSwitch> -->
 	<FormSwitch v-model="profile.showTimelineReplies" class="_formBlock">{{ i18n.ts.flagShowTimelineReplies }}<template #caption>{{ i18n.ts.flagShowTimelineRepliesDescription }} {{ i18n.ts.reflectMayTakeTime }}</template></FormSwitch>

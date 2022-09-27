@@ -33,7 +33,8 @@
 				</MkA>
 			</div>
 			<div v-if="!fetching && messages.length == 0" class="_fullinfo">
-				<img src="http://speechka.22web.org/45594636.jpg" class="_ghost"/>
+				<img src="https://xn--931a.moe/assets/info.jpg" class="_ghost"/>
+				<!-- <img src="" class="_ghost"/> -->
 				<div>{{ $ts.noHistory }}</div>
 			</div>
 			<MkLoading v-if="fetching"/>

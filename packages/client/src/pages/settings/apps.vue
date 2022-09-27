@@ -3,7 +3,8 @@
 	<FormPagination ref="list" :pagination="pagination">
 		<template #empty>
 			<div class="_fullinfo">
-				<img src="http://speechka.22web.org/45594636.jpg" class="_ghost"/>
+				<img src="https://xn--931a.moe/assets/info.jpg" class="_ghost"/>
+				<!-- <img src="" class="_ghost"/> -->
 				<div>{{ i18n.ts.nothing }}</div>
 			</div>
 		</template>

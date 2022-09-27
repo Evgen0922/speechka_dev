@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <div class="_card tbkwesmv">
 	<div class="_title"><i class="fas fa-info-circle"></i> {{ i18n.ts._tutorial.title }}</div>
 	<div v-if="tutorial === 0" class="_content">
@@ -63,7 +63,7 @@
 		<MkButton v-else class="ok" primary @click="tutorial++"><i class="fas fa-check"></i> {{ i18n.ts.next }}</MkButton>
 	</div>
 </div>
-</template>
+</template> -->
 
 <script lang="ts" setup>
 import { computed } from 'vue';
