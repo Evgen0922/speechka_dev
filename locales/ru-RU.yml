@@ -1,9 +1,8 @@
----
-_lang_: "Русский"
- _actions:
+_actions:
     followBack: "подписаться в ответ"
     reply: "Ответить"
     renote: "Переименовать"
+_lang_: "Русский"
 logoutConfirm: "Действительно выйти?"
 _preferencesBackups:
   list: "Существующие резервные копии"
