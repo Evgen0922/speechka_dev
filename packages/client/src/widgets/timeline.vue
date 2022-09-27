@@ -3,8 +3,8 @@
 	<template #header>
 		<button class="_button" @click="choose">
 			<i v-if="widgetProps.src === 'home'" class="fas fa-home"></i>
-			<i v-else-if="widgetProps.src === 'local'" class="fas fa-comments"></i>
-			<i v-else-if="widgetProps.src === 'social'" class="fas fa-share-alt"></i>
+			<!-- <i v-else-if="widgetProps.src === 'local'" class="fas fa-comments"></i> -->
+			<!-- <i v-else-if="widgetProps.src === 'social'" class="fas fa-share-alt"></i> -->
 			<i v-else-if="widgetProps.src === 'global'" class="fas fa-globe"></i>
 			<i v-else-if="widgetProps.src === 'list'" class="fas fa-list-ul"></i>
 			<i v-else-if="widgetProps.src === 'antenna'" class="fas fa-satellite"></i>

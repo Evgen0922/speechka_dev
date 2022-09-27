@@ -67,12 +67,12 @@
 		<FormSwitch v-model="aiChanMode">{{ i18n.ts.aiChanMode }}</FormSwitch>
 	</FormSection>
 
-	<FormSelect v-model="instanceTicker" class="_formBlock">
+	<!-- <FormSelect v-model="instanceTicker" class="_formBlock">
 		<template #label>{{ i18n.ts.instanceTicker }}</template>
 		<option value="none">{{ i18n.ts._instanceTicker.none }}</option>
 		<option value="remote">{{ i18n.ts._instanceTicker.remote }}</option>
 		<option value="always">{{ i18n.ts._instanceTicker.always }}</option>
-	</FormSelect>
+	</FormSelect> -->
 
 	<FormSelect v-model="nsfw" class="_formBlock">
 		<template #label>{{ i18n.ts.nsfw }}</template>
@@ -86,9 +86,9 @@
 		<template #caption>{{ i18n.ts.numberOfPageCacheDescription }}</template>
 	</FormRange>
 
-	<FormLink to="/settings/deck" class="_formBlock">{{ i18n.ts.deck }}</FormLink>
+	<!-- <FormLink to="/settings/deck" class="_formBlock">{{ i18n.ts.deck }}</FormLink> -->
 
-	<FormLink to="/settings/custom-css" class="_formBlock"><template #icon><i class="fas fa-code"></i></template>{{ i18n.ts.customCss }}</FormLink>
+	<!-- <FormLink to="/settings/custom-css" class="_formBlock"><template #icon><i class="fas fa-code"></i></template>{{ i18n.ts.customCss }}</FormLink> -->
 </div>
 </template>
 

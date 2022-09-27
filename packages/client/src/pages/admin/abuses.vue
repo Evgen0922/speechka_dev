@@ -12,18 +12,18 @@
 							<option value="unresolved">{{ i18n.ts.unresolved }}</option>
 							<option value="resolved">{{ i18n.ts.resolved }}</option>
 						</MkSelect>
-						<MkSelect v-model="targetUserOrigin" style="margin: 0; flex: 1;">
+						<!-- <MkSelect v-model="targetUserOrigin" style="margin: 0; flex: 1;">
 							<template #label>{{ i18n.ts.reporteeOrigin }}</template>
 							<option value="combined">{{ i18n.ts.all }}</option>
 							<option value="local">{{ i18n.ts.local }}</option>
 							<option value="remote">{{ i18n.ts.remote }}</option>
-						</MkSelect>
-						<MkSelect v-model="reporterOrigin" style="margin: 0; flex: 1;">
+						</MkSelect> -->
+						<!-- <MkSelect v-model="reporterOrigin" style="margin: 0; flex: 1;">
 							<template #label>{{ i18n.ts.reporterOrigin }}</template>
 							<option value="combined">{{ i18n.ts.all }}</option>
 							<option value="local">{{ i18n.ts.local }}</option>
 							<option value="remote">{{ i18n.ts.remote }}</option>
-						</MkSelect>
+						</MkSelect> -->
 					</div>
 					<!-- TODO
 			<div class="inputs" style="display: flex; padding-top: 1.2em;">

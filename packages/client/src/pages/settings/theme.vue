@@ -60,8 +60,8 @@
 		</div>
 	</FormSection>
 
-	<FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton>
-	<FormButton v-else class="_formBlock" @click="wallpaper = null">{{ i18n.ts.removeWallpaper }}</FormButton>
+	<!-- <FormButton v-if="wallpaper == null" class="_formBlock" @click="setWallpaper">{{ i18n.ts.setWallpaper }}</FormButton> -->
+	<!-- <FormButton v-else class="_formBlock" @click="wallpaper = null">{{ i18n.ts.removeWallpaper }}</FormButton> -->
 </div>
 </template>
 

@@ -129,8 +129,7 @@ onMounted(() => {
 		nextTick(() => {
 			const tabEl = tabRefs[props.tab];
 			if (tabEl && tabHighlightEl) {
-				// offsetWidth や offsetLeft は少数を丸めてしまうため getBoundingClientRect を使う必要がある
-				// https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/offsetWidth#%E5%80%A4
+				
 				const parentRect = tabEl.parentElement.getBoundingClientRect();
 				const rect = tabEl.getBoundingClientRect();
 				tabHighlightEl.style.width = rect.width + 'px';
