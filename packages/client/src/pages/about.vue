@@ -114,11 +114,13 @@ const headerActions = $computed(() => []);
 const headerTabs = $computed(() => [{
 	key: 'overview',
 	title: i18n.ts.overview,
-}, {
-	key: 'emojis',
-	title: i18n.ts.customEmojis,
-	icon: 'fas fa-laugh',
 }, 
+// {
+// 	key: 'emojis',
+// 	title: i18n.ts.customEmojis,
+// 	icon: 'fas fa-laugh',
+// }, 
+
 // {
 // 	key: 'federation',
 // 	title: i18n.ts.federation,
@@ -128,7 +130,8 @@ const headerTabs = $computed(() => [{
 	key: 'charts',
 	title: i18n.ts.charts,
 	icon: 'fas fa-chart-simple',
-}]);
+}
+]);
 
 definePageMetadata(computed(() => ({
 	title: i18n.ts.instanceInfo,
