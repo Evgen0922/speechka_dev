@@ -40,7 +40,8 @@
 
 	<FormSection>
 		<template #label>{{ i18n.ts.appearance }}</template>
-		<FormSwitch v-model="disableAnimatedMfm" class="_formBlock">{{ i18n.ts.disableAnimatedMfm }}</FormSwitch>
+		<!-- TODO: я не знаю, какая-то анимированная разметка MFM. Отключил. -->
+		<!-- <FormSwitch v-model="disableAnimatedMfm" class="_formBlock">{{ i18n.ts.disableAnimatedMfm }}</FormSwitch> -->
 		<FormSwitch v-model="reduceAnimation" class="_formBlock">{{ i18n.ts.reduceUiAnimation }}</FormSwitch>
 		<FormSwitch v-model="useBlurEffect" class="_formBlock">{{ i18n.ts.useBlurEffect }}</FormSwitch>
 		<FormSwitch v-model="useBlurEffectForModal" class="_formBlock">{{ i18n.ts.useBlurEffectForModal }}</FormSwitch>
@@ -64,9 +65,10 @@
 		</FormRadios>
 	</FormSection>
 
-	<FormSection>
+	<!-- TODO: Какой-то ИИ (искуственный интелект), пока не разобрался. Отключил. -->
+	<!-- <FormSection>
 		<FormSwitch v-model="aiChanMode">{{ i18n.ts.aiChanMode }}</FormSwitch>
-	</FormSection>
+	</FormSection> -->
 
 	<!-- <FormSelect v-model="instanceTicker" class="_formBlock">
 		<template #label>{{ i18n.ts.instanceTicker }}</template>

@@ -17,10 +17,11 @@
 		</FormSplit>
 	</FormSection>
 
-	<FormSection>
+	<!-- TODO: Убрана статистика диска в настройках -->
+	<!-- <FormSection>
 		<template #label>{{ i18n.ts.statistics }}</template>
 		<MkChart src="per-user-drive" :args="{ user: $i }" span="day" :limit="7 * 5" :bar="true" :stacked="true" :detailed="false" :aspect-ratio="6"/>
-	</FormSection>
+	</FormSection> -->
 
 	<FormSection>
 		<FormLink @click="chooseUploadFolder()">

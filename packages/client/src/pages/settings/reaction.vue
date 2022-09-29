@@ -39,10 +39,11 @@
 		<option :value="4">{{ i18n.ts.large }}+</option>
 	</FormRadios>
 
-	<FormSwitch v-model="reactionPickerUseDrawerForMobile" class="_formBlock">
+	<!-- TODO: Выдвижная палитра на мобильном устройстве. Отключил. -->
+	<!-- <FormSwitch v-model="reactionPickerUseDrawerForMobile" class="_formBlock">
 		{{ i18n.ts.useDrawerReactionPickerForMobile }}
 		<template #caption>{{ i18n.ts.needReloadToApply }}</template>
-	</FormSwitch>
+	</FormSwitch> -->
 
 	<FormSection>
 		<div style="display: flex; gap: var(--margin); flex-wrap: wrap;">

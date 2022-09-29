@@ -100,12 +100,14 @@ function openInstanceMenu(ev: MouseEvent) {
 		text: i18n.ts.instanceInfo,
 		icon: 'fas fa-info-circle',
 		to: '/about',
-	}, {
-		type: 'link',
-		text: i18n.ts.customEmojis,
-		icon: 'fas fa-laugh',
-		to: '/about#emojis',
-	}, {
+	}, 
+	// {
+	// 	type: 'link',
+	// 	text: i18n.ts.customEmojis,
+	// 	icon: 'fas fa-laugh',
+	// 	to: '/about#emojis',
+	// }, 
+	{
 		type: 'link',
 		text: i18n.ts.aboutMisskey,
 		to: '/about-speechka',
