@@ -46,7 +46,8 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 					if (!account) return null;
 					const userDetail = await cli.request('users/show', { userId: data.body.userId }, account.token);
 					return [t('_notification.youWereFollowed', { name: getUserName(data.body.user) }), {
-						body: getUserName(data.body.user),
+						// Убрано повторение имени подписчика
+						// body: getUserName(data.body.user),
 						icon: data.body.user.avatarUrl,
 						badge: iconUrl('user-plus'),
 						data,
@@ -239,7 +240,7 @@ async function composeNotification<K extends keyof pushNotificationDataMap>(data
 		case 'unreadMessagingMessage':
 			if (data.body.groupId === null) {
 				return [t('_notification.youGotMessagingMessageFromUser', { name: getUserName(data.body.user) }), {
-					// icon: data.body.user.avatarUrl,
+					icon: data.body.user.avatarUrl,
 					badge: iconUrl('comments'),
 					tag: `messaging:user:${data.body.userId}`,
 					data,

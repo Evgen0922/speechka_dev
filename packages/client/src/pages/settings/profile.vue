@@ -32,6 +32,7 @@
 		<option v-for="x in Object.keys(langmap)" :key="x" :value="x">{{ langmap[x].nativeName }}</option>
 	</FormSelect>
 
+	<!-- Убраны дополнительные теги -->
 	<!-- <FormSlot class="_formBlock">
 		<FormFolder>
 			<template #icon><i class="fas fa-table-list"></i></template>

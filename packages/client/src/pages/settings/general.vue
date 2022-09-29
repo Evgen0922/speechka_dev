@@ -27,7 +27,8 @@
 		<FormSwitch v-model="imageNewTab" class="_formBlock">{{ i18n.ts.openImageInNewTab }}</FormSwitch>
 		<FormSwitch v-model="enableInfiniteScroll" class="_formBlock">{{ i18n.ts.enableInfiniteScroll }}</FormSwitch>
 		<FormSwitch v-model="useReactionPickerForContextMenu" class="_formBlock">{{ i18n.ts.useReactionPickerForContextMenu }}</FormSwitch>
-		<FormSwitch v-model="disablePagesScript" class="_formBlock">{{ i18n.ts.disablePagesScript }}</FormSwitch>
+		<!-- TODO: Убран переключатель отключения скриптов на страницах -->
+		<!-- <FormSwitch v-model="disablePagesScript" class="_formBlock">{{ i18n.ts.disablePagesScript }}</FormSwitch> -->
 
 		<FormSelect v-model="serverDisconnectedBehavior" class="_formBlock">
 			<template #label>{{ i18n.ts.whenServerDisconnected }}</template>
@@ -81,10 +82,11 @@
 		<option value="force">{{ i18n.ts._nsfw.force }}</option>
 	</FormSelect>
 
-	<FormRange v-model="numberOfPageCache" :min="1" :max="10" :step="1" easing class="_formBlock">
+	<!-- Убран ползунок нагрузки на сервер -->
+	<!-- <FormRange v-model="numberOfPageCache" :min="1" :max="10" :step="1" easing class="_formBlock">
 		<template #label>{{ i18n.ts.numberOfPageCache }}</template>
 		<template #caption>{{ i18n.ts.numberOfPageCacheDescription }}</template>
-	</FormRange>
+	</FormRange> -->
 
 	<!-- <FormLink to="/settings/deck" class="_formBlock">{{ i18n.ts.deck }}</FormLink> -->
 

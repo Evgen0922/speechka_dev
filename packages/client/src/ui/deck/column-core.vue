@@ -1,5 +1,4 @@
 <template>
-<!-- TODO: リファクタの余地がありそう -->
 <div v-if="!column">たぶん見えちゃいけないやつ</div>
 <XMainColumn v-else-if="column.type === 'main'" :column="column" :is-stacked="isStacked" @parent-focus="emit('parent-focus', $event)"/>
 <XWidgetsColumn v-else-if="column.type === 'widgets'" :column="column" :is-stacked="isStacked" @parent-focus="emit('parent-focus', $event)"/>

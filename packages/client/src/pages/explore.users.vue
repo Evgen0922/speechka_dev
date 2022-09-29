@@ -2,7 +2,7 @@
 <MkSpacer :content-max="1200">
 	<MkTab v-model="origin" style="margin-bottom: var(--margin);">
 		<option value="local">{{ i18n.ts.local }}</option>
-		<option value="remote">{{ i18n.ts.remote }}</option>
+		<!-- <option value="remote">{{ i18n.ts.remote }}</option> -->
 	</MkTab>
 	<div v-if="origin === 'local'">
 		<template v-if="tag == null">
@@ -30,7 +30,7 @@
 
 			<div class="vxjfqztj">
 				<MkA v-for="tag in tagsLocal" :key="'local:' + tag.tag" :to="`/explore/tags/${tag.tag}`" class="local">{{ tag.tag }}</MkA>
-				<MkA v-for="tag in tagsRemote" :key="'remote:' + tag.tag" :to="`/explore/tags/${tag.tag}`">{{ tag.tag }}</MkA>
+				<!-- <MkA v-for="tag in tagsRemote" :key="'remote:' + tag.tag" :to="`/explore/tags/${tag.tag}`">{{ tag.tag }}</MkA> -->
 			</div>
 		</MkFolder>
 
