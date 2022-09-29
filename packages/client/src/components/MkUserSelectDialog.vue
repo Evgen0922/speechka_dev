@@ -16,10 +16,11 @@
 					<template #label>{{ i18n.ts.username }}</template>
 					<template #prefix>@</template>
 				</MkInput>
-				<MkInput v-model="host" @update:modelValue="search">
+				<!-- TODO: Убрано поле хоста в отправке заметки -->
+				<!-- <MkInput v-model="host" @update:modelValue="search">
 					<template #label>{{ i18n.ts.host }}</template>
 					<template #prefix>@</template>
-				</MkInput>
+				</MkInput> -->
 			</FormSplit>
 		</div>
 		<div v-if="username != '' || host != ''" class="result" :class="{ hit: users.length > 0 }">

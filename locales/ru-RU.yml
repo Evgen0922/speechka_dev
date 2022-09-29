@@ -1273,6 +1273,7 @@ _visibility:
   publicDescription: "Открыто для всех"
   home: "Домашняя"
   homeDescription: "Не для общих лент"
+  homeNotes: "Заметка для себя"
   followers: "Для подписчиков"
   followersDescription: "Только вашим подписчикам"
   specified: "Личное"

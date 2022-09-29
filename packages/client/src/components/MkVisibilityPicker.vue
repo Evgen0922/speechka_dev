@@ -12,7 +12,7 @@
 			<div><i class="fas fa-home"></i></div>
 			<div>
 				<span>{{ i18n.ts._visibility.home }}</span>
-				<span>{{ i18n.ts._visibility.homeDescription }}</span>
+				<span>{{ i18n.ts._visibility.homeNotes }}</span>
 			</div>
 		</button>
 		<button key="followers" class="_button" :class="{ active: v === 'followers' }" data-index="3" @click="choose('followers')">
