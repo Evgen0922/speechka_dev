@@ -128,11 +128,13 @@ const headerTabs = $computed(() => [{
 	key: 'ip',
 	title: 'IP',
 	icon: 'fas fa-bars-staggered',
-} : null, {
-	key: 'raw',
-	title: 'Raw data',
-	icon: 'fas fa-code',
-}]);
+} : null, 
+// {
+// 	key: 'raw',
+// 	title: 'Raw data',
+// 	icon: 'fas fa-code',
+// }
+]);
 
 definePageMetadata(computed(() => ({
 	title: file ? i18n.ts.file + ': ' + file.name : i18n.ts.file,
