@@ -180,11 +180,11 @@ export function getUserMenu(user, router: Router = mainRouter) {
 		text: i18n.ts.addToList,
 		action: pushList,
 	}, 
-	// meId !== user.id ? {
-	// 	icon: 'fas fa-users',
-	// 	text: i18n.ts.inviteToGroup,
-	// 	action: inviteGroup,
-	// } : undefined
+	meId !== user.id ? {
+		icon: 'fas fa-users',
+		text: i18n.ts.inviteToGroup,
+		action: inviteGroup,
+	} : undefined
     ] as any;
 
 	if ($i && meId !== user.id) {
