@@ -1,8 +1,8 @@
-<template>
+<!-- <template>
 <MkContainer :naked="widgetProps.transparent" :show-header="false" class="mkw-aichan">
 	<iframe ref="live2d" class="dedjhjmo" src="https://misskey-dev.github.io/mascot-web/?scale=1.5&y=1.1&eyeY=100" @click="touched"></iframe>
 </MkContainer>
-</template>
+</template> -->
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, reactive, ref } from 'vue';
@@ -20,7 +20,7 @@ const widgetPropsDef = {
 
 type WidgetProps = GetFormResultType<typeof widgetPropsDef>;
 
-// 現時点ではvueの制限によりimportしたtypeをジェネリックに渡せない
+
 //const props = defineProps<WidgetComponentProps<WidgetProps>>();
 //const emit = defineEmits<WidgetComponentEmits<WidgetProps>>();
 const props = defineProps<{ widget?: Widget<WidgetProps>; }>();

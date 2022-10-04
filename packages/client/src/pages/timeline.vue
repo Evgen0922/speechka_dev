@@ -116,17 +116,20 @@ const headerTabs = $computed(() => [{
 	title: i18n.ts._timelines.home,
 	icon: 'fas fa-home',
 	iconOnly: true,
-}, ...(isLocalTimelineAvailable ? [{
-	key: 'local',
-	title: i18n.ts._timelines.local,
-	icon: 'fas fa-comments',
-	iconOnly: true,
-}, {
-	key: 'social',
-	title: i18n.ts._timelines.social,
-	icon: 'fas fa-share-alt',
-	iconOnly: true,
-}] : []), ...(isGlobalTimelineAvailable ? [{
+}, ...(isLocalTimelineAvailable ? [
+// {
+// 	key: 'local',
+// 	title: i18n.ts._timelines.local,
+// 	icon: 'fas fa-comments',
+// 	iconOnly: true,
+// }, 
+// {
+// 	key: 'social',
+// 	title: i18n.ts._timelines.social,
+// 	icon: 'fas fa-share-alt',
+// 	iconOnly: true,
+// }
+] : []), ...(isGlobalTimelineAvailable ? [{
 	key: 'global',
 	title: i18n.ts._timelines.global,
 	icon: 'fas fa-globe',

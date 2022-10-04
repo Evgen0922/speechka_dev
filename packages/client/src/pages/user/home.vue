@@ -92,7 +92,7 @@
 				<MkInfo v-else-if="$i && $i.id === user.id">{{ i18n.ts.userPagePinTip }}</MkInfo>
 				<template v-if="narrow">
 					<XPhotos :key="user.id" :user="user"/>
-					<XActivity :key="user.id" :user="user" style="margin-top: var(--margin);"/>
+					<!-- <XActivity :key="user.id" :user="user" style="margin-top: var(--margin);"/> -->
 				</template>
 			</div>
 			<div>
@@ -101,7 +101,7 @@
 		</div>
 		<div v-if="!narrow" class="sub">
 			<XPhotos :key="user.id" :user="user"/>
-			<XActivity :key="user.id" :user="user" style="margin-top: var(--margin);"/>
+			<!-- <XActivity :key="user.id" :user="user" style="margin-top: var(--margin);"/> -->
 		</div>
 	</div>
 </MkSpacer>

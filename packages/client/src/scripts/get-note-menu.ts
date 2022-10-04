@@ -99,7 +99,7 @@ export function getNoteMenu(props: {
 		const clips = await os.api('clips/list');
 		os.popupMenu([{
 			icon: 'fas fa-plus',
-			text: i18n.ts.createNew,
+			text: i18n.ts.createNewClip,
 			action: async () => {
 				const { canceled, result } = await os.form(i18n.ts.createNewClip, {
 					name: {
@@ -242,14 +242,16 @@ export function getNoteMenu(props: {
 			}),
 			{
 				icon: 'fas fa-paperclip',
-				text: i18n.ts.clip,
+				text: i18n.ts.createNewClip,
 				action: () => clip(),
 			},
-			(appearNote.userId !== $i.id) ? statePromise.then(state => state.isWatching ? {
-				icon: 'fas fa-eye-slash',
-				text: i18n.ts.unwatch,
-				action: () => toggleWatch(false),
-			} : {
+			(appearNote.userId !== $i.id) ? statePromise.then(state => state.isWatching ? 
+			// {
+			// 	icon: 'fas fa-eye-slash',
+			// 	text: i18n.ts.unwatch,
+			// 	action: () => toggleWatch(false),
+			// } 
+			: {
 				icon: 'fas fa-eye',
 				text: i18n.ts.watch,
 				action: () => toggleWatch(true),

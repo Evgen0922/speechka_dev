@@ -19,7 +19,7 @@
 				<FormButton primary @click="selectFile"><i class="fas fa-plus"></i> {{ i18n.ts.attachFile }}</FormButton>
 			</div>
 
-			<FormSwitch v-model="isSensitive">{{ i18n.ts.markAsSensitive }}</FormSwitch>
+			<!-- <FormSwitch v-model="isSensitive">{{ i18n.ts.markAsSensitive }}</FormSwitch> -->
 
 			<FormButton v-if="postId" primary @click="save"><i class="fas fa-save"></i> {{ i18n.ts.save }}</FormButton>
 			<FormButton v-else primary @click="save"><i class="fas fa-save"></i> {{ i18n.ts.publish }}</FormButton>

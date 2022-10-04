@@ -12,17 +12,17 @@ import { aggregateNoteEmojis, populateEmojis, prefetchEmojis } from '@/misc/popu
 import { db } from '@/db/postgre.js';
 
 async function hideNote(packedNote: Packed<'Note'>, meId: User['id'] | null) {
-	// TODO: isVisibleForMe を使うようにしても良さそう(型違うけど)
+	
 	let hide = false;
 
-	// visibility が specified かつ自分が指定されていなかったら非表示
+	
 	if (packedNote.visibility === 'specified') {
 		if (meId == null) {
 			hide = true;
 		} else if (meId === packedNote.userId) {
 			hide = false;
 		} else {
-			// 指定されているかどうか
+			
 			const specified = packedNote.visibleUserIds!.some((id: any) => meId === id);
 
 			if (specified) {
@@ -33,20 +33,19 @@ async function hideNote(packedNote: Packed<'Note'>, meId: User['id'] | null) {
 		}
 	}
 
-	// visibility が followers かつ自分が投稿者のフォロワーでなかったら非表示
 	if (packedNote.visibility === 'followers') {
 		if (meId == null) {
 			hide = true;
 		} else if (meId === packedNote.userId) {
 			hide = false;
 		} else if (packedNote.reply && (meId === packedNote.reply.userId)) {
-			// 自分の投稿に対するリプライ
+			
 			hide = false;
 		} else if (packedNote.mentions && packedNote.mentions.some(id => meId === id)) {
-			// 自分へのメンション
+			
 			hide = false;
 		} else {
-			// フォロワーかどうか
+			
 			const following = await Followings.findOneBy({
 				followeeId: packedNote.userId,
 				followerId: meId,
@@ -119,7 +118,7 @@ async function populateMyReaction(note: Note, meId: User['id'], _hint_?: {
 		} else if (reaction === null) {
 			return undefined;
 		}
-		// 実装上抜けがあるだけかもしれないので、「ヒントに含まれてなかったら(=undefinedなら)return」のようにはしない
+		
 	}
 
 	const reaction = await NoteReactions.findOneBy({
@@ -136,33 +135,32 @@ async function populateMyReaction(note: Note, meId: User['id'], _hint_?: {
 
 export const NoteRepository = db.getRepository(Note).extend({
 	async isVisibleForMe(note: Note, meId: User['id'] | null): Promise<boolean> {
-		// This code must always be synchronized with the checks in generateVisibilityQuery.
-		// visibility が specified かつ自分が指定されていなかったら非表示
+		
 		if (note.visibility === 'specified') {
 			if (meId == null) {
 				return false;
 			} else if (meId === note.userId) {
 				return true;
 			} else {
-				// 指定されているかどうか
+				
 				return note.visibleUserIds.some((id: any) => meId === id);
 			}
 		}
 
-		// visibility が followers かつ自分が投稿者のフォロワーでなかったら非表示
+		
 		if (note.visibility === 'followers') {
 			if (meId == null) {
 				return false;
 			} else if (meId === note.userId) {
 				return true;
 			} else if (note.reply && (meId === note.reply.userId)) {
-				// 自分の投稿に対するリプライ
+				
 				return true;
 			} else if (note.mentions && note.mentions.some(id => meId === id)) {
-				// 自分へのメンション
+				
 				return true;
 			} else {
-				// フォロワーかどうか
+				
 				const [following, user] = await Promise.all([
 					Followings.count({
 						where: {
@@ -275,7 +273,7 @@ export const NoteRepository = db.getRepository(Note).extend({
 			const tokens = packed.text ? mfm.parse(packed.text) : [];
 			mfm.inspect(tokens, node => {
 				if (node.type === 'text') {
-					// TODO: quoteなtextはskip
+					
 					node.props.text = nyaize(node.props.text);
 				}
 			});

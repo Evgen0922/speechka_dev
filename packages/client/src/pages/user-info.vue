@@ -20,10 +20,10 @@
 				<MkInfo v-if="user.username.includes('.')" class="_formBlock">{{ i18n.ts.isSystemAccount }}</MkInfo>
 
 				<div v-if="user.url" class="_formLinksGrid _formBlock">
-					<FormLink :to="userPage(user)">Profile</FormLink>
-					<FormLink :to="user.url" :external="true">Profile (remote)</FormLink>
+					<FormLink :to="userPage(user)">Профиль</FormLink>
+					<FormLink :to="user.url" :external="true">Профиль (remote)</FormLink>
 				</div>
-				<FormLink v-else class="_formBlock" :to="userPage(user)">Profile</FormLink>
+				<FormLink v-else class="_formBlock" :to="userPage(user)">Профиль</FormLink>
 
 				<FormLink v-if="user.host" class="_formBlock" :to="`/instance-info/${user.host}`">{{ i18n.ts.instanceInfo }}</FormLink>
 
@@ -32,7 +32,7 @@
 						<template #key>ID</template>
 						<template #value><span class="_monospace">{{ user.id }}</span></template>
 					</MkKeyValue>
-					<!-- 要る？
+					<!-- 
 					<MkKeyValue v-if="ips.length > 0" :copy="user.id" oneline style="margin: 1em 0;">
 						<template #key>IP (recent)</template>
 						<template #value><span class="_monospace">{{ ips[0].ip }}</span></template>
@@ -52,7 +52,7 @@
 					</MkKeyValue>
 				</div>
 
-				<FormSection>
+				<!-- <FormSection>
 					<template #label>ActivityPub</template>
 
 					<div class="_formBlock">
@@ -82,7 +82,7 @@
 						<MkObjectView v-if="ap" tall :value="ap">
 						</MkObjectView>
 					</FormFolder>
-				</FormSection>
+				</FormSection> -->
 			</div>
 			<div v-else-if="tab === 'moderation'" class="_formRoot">
 				<FormSwitch v-if="user.host == null && $i.isAdmin && (moderator || !user.isAdmin)" v-model="moderator" class="_formBlock" @update:modelValue="toggleModerator">{{ i18n.ts.moderator }}</FormSwitch>
@@ -369,15 +369,18 @@ const headerTabs = $computed(() => [{
 	key: 'moderation',
 	title: i18n.ts.moderation,
 	icon: 'fas fa-shield-halved',
-} : null, {
+} : null, 
+{
 	key: 'chart',
 	title: i18n.ts.charts,
 	icon: 'fas fa-chart-simple',
-}, {
+}, 
+{
 	key: 'raw',
 	title: 'Raw',
 	icon: 'fas fa-code',
-}].filter(x => x != null));
+}
+].filter(x => x != null));
 
 definePageMetadata(computed(() => ({
 	title: user ? acct(user) : i18n.ts.userInfo,

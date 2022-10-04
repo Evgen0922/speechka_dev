@@ -47,5 +47,5 @@ export const widgets = [
 	'jobQueue',
 	'button',
 	'aiscript',
-	'aichan',
+	// 'aichan',
 ];

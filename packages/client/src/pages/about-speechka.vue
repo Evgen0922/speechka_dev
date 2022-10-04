@@ -63,7 +63,7 @@ import * as os from '@/os';
 import { definePageMetadata } from '@/scripts/page-metadata';
 
 const patrons = [
-	'Evgen0922',
+	'Kevgen',
 	'...',
 ];
 

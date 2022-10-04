@@ -369,19 +369,22 @@ const fetchFederationChart = async (): Promise<typeof chartData> => {
 			data: format(raw.pubsub),
 			dashed: true,
 			color: colors.cyan,
-		}, {
+		}, 
+		{
 			name: 'Pub',
 			type: 'line',
 			data: format(raw.pub),
 			dashed: true,
 			color: colors.purple,
-		}, {
+		}, 
+		{
 			name: 'Sub',
 			type: 'line',
 			data: format(raw.sub),
 			dashed: true,
 			color: colors.orange,
-		}],
+		}
+	],
 	};
 };
 

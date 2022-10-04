@@ -4,8 +4,7 @@ import { id } from '../id.js';
 import { User } from './user.js';
 import { Page } from './page.js';
 
-// TODO: このテーブルで管理している情報すべてレジストリで管理するようにしても良いかも
-//       ただ、「emailVerified が true なユーザーを find する」のようなクエリは書けなくなるからウーン
+
 @Entity()
 export class UserProfile {
 	@PrimaryColumn(id())
@@ -122,14 +121,14 @@ export class UserProfile {
 	})
 	public moderationNote: string | null;
 
-	// TODO: そのうち消す
+	
 	@Column('jsonb', {
 		default: {},
 		comment: 'The client-specific data of the User.',
 	})
 	public clientData: Record<string, any>;
 
-	// TODO: そのうち消す
+	
 	@Column('jsonb', {
 		default: {},
 		comment: 'The room data of the User.',

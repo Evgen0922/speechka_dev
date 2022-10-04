@@ -65,11 +65,13 @@ function getMenu() {
 		text: i18n.ts.rename,
 		icon: 'fas fa-i-cursor',
 		action: rename,
-	}, {
-		text: props.file.isSensitive ? i18n.ts.unmarkAsSensitive : i18n.ts.markAsSensitive,
-		icon: props.file.isSensitive ? 'fas fa-eye' : 'fas fa-eye-slash',
-		action: toggleSensitive,
-	}, {
+	}, 
+	// {
+	// 	text: props.file.isSensitive ? i18n.ts.unmarkAsSensitive : i18n.ts.markAsSensitive,
+	// 	icon: props.file.isSensitive ? 'fas fa-eye' : 'fas fa-eye-slash',
+	// 	action: toggleSensitive,
+	// },
+	 {
 		text: i18n.ts.describeFile,
 		icon: 'fas fa-i-cursor',
 		action: describe,

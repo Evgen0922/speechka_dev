@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="subpub">
+	<!-- <div class="subpub">
 		<div class="sub">
 			<div class="title">Sub</div>
 			<canvas ref="subDoughnutEl"></canvas>
@@ -43,7 +43,7 @@
 			<div class="title">Pub</div>
 			<canvas ref="pubDoughnutEl"></canvas>
 		</div>
-	</div>
+	</div> -->
 </div>
 </template>
 

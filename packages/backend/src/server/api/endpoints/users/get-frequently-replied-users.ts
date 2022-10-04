@@ -71,12 +71,12 @@ export default define(meta, paramDef, async (ps, me) => {
 		select: ['replyId'],
 	});
 
-	// 投稿が少なかったら中断
+	
 	if (recentNotes.length === 0) {
 		return [];
 	}
 
-	// TODO ミュートを考慮
+	
 	const replyTargetNotes = await Notes.find({
 		where: {
 			id: In(recentNotes.map(p => p.replyId)),
