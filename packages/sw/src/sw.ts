@@ -41,7 +41,7 @@ self.addEventListener('fetch', ev => {
 });
 
 self.addEventListener('push', ev => {
-	// クライアント取得
+	
 	ev.waitUntil(self.clients.matchAll({
 		includeUncontrolled: true,
 		type: 'window'
@@ -52,10 +52,10 @@ self.addEventListener('push', ev => {
 			// case 'driveFileCreated':
 			case 'notification':
 			case 'unreadMessagingMessage':
-				// 1日以上経過している場合は無視
+				
 				if ((new Date()).getTime() - data.dateTime > 1000 * 60 * 60 * 24) break;
 
-				// クライアントがあったらストリームに接続しているということなので通知しない
+				
 				if (clients.length !== 0) break;
 
 				return createNotification(data);
@@ -192,12 +192,12 @@ self.addEventListener('message', (ev: ServiceWorkerGlobalScopeEventMap['message'
 	ev.waitUntil((async () => {
 		switch (ev.data) {
 			case 'clear':
-				// Cache Storage全削除
+				
 				await caches.keys()
 					.then(cacheNames => Promise.all(
 						cacheNames.map(name => caches.delete(name))
 					));
-				return; // TODO
+				return; 
 		}
 	
 		if (typeof ev.data === 'object') {
