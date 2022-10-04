@@ -245,17 +245,17 @@ export function getNoteMenu(props: {
 				text: i18n.ts.createNewClip,
 				action: () => clip(),
 			},
-			(appearNote.userId !== $i.id) ? statePromise.then(state => state.isWatching ? 
+			// (appearNote.userId !== $i.id) ? statePromise.then(state => state.isWatching ? 
 			// {
 			// 	icon: 'fas fa-eye-slash',
 			// 	text: i18n.ts.unwatch,
 			// 	action: () => toggleWatch(false),
 			// } 
-			: {
-				icon: 'fas fa-eye',
-				text: i18n.ts.watch,
-				action: () => toggleWatch(true),
-			}) : undefined,
+			// : {
+			// 	icon: 'fas fa-eye',
+			// 	text: i18n.ts.watch,
+			// 	action: () => toggleWatch(true),
+			// }) : undefined,
 			statePromise.then(state => state.isMutedThread ? {
 				icon: 'fas fa-comment-slash',
 				text: i18n.ts.unmuteThread,

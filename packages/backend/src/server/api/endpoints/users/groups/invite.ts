@@ -17,25 +17,25 @@ export const meta = {
 
 	errors: {
 		noSuchGroup: {
-			message: 'No such group.',
+			message: 'Нет такой группы.',
 			code: 'NO_SUCH_GROUP',
 			id: '583f8bc0-8eee-4b78-9299-1e14fc91e409',
 		},
 
 		noSuchUser: {
-			message: 'No such user.',
+			message: 'Нет такого пользователя.',
 			code: 'NO_SUCH_USER',
 			id: 'da52de61-002c-475b-90e1-ba64f9cf13a8',
 		},
 
 		alreadyAdded: {
-			message: 'That user has already been added to that group.',
+			message: 'Этот пользователь уже был добавлен в эту группу.',
 			code: 'ALREADY_ADDED',
 			id: '7e35c6a0-39b2-4488-aea6-6ee20bd5da2c',
 		},
 
 		alreadyInvited: {
-			message: 'That user has already been invited to that group.',
+			message: 'Этот пользователь уже был приглашён в эту группу.',
 			code: 'ALREADY_INVITED',
 			id: 'ee0f58b4-b529-4d13-b761-b9a3e69f97e6',
 		},
@@ -94,7 +94,7 @@ export default define(meta, paramDef, async (ps, me) => {
 		userGroupId: userGroup.id,
 	} as UserGroupInvitation).then(x => UserGroupInvitations.findOneByOrFail(x.identifiers[0]));
 
-	// 通知を作成
+	
 	createNotification(user.id, 'groupInvited', {
 		notifierId: me.id,
 		userGroupInvitationId: invitation.id,

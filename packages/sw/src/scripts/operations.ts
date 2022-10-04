@@ -1,7 +1,4 @@
-/*
- * Operations
- * 各種操作
- */
+
 declare var self: ServiceWorkerGlobalScope;
 
 import * as Misskey from 'misskey-js';
@@ -19,12 +16,10 @@ export async function api<E extends keyof Misskey.Endpoints>(endpoint: E, userId
 	return cli.request(endpoint, options, account.token);
 }
 
-// rendered acctからユーザーを開く
 export function openUser(acct: string, loginId: string) {
 	return openClient('push', `/@${acct}`, loginId, { acct });
 }
 
-// noteIdからノートを開く
 export function openNote(noteId: string, loginId: string) {
 	return openClient('push', `/notes/${noteId}`, loginId, { noteId });
 }
@@ -37,9 +32,9 @@ export async function openChat(body: any, loginId: string) {
 	}
 }
 
-// post-formのオプションから投稿フォームを開く
+
 export async function openPost(options: any, loginId: string) {
-	// クエリを作成しておく
+	
 	let url = `/share?`;
 	if (options.initialText) url += `text=${options.initialText}&`;
 	if (options.reply) url += `replyId=${options.reply.id}&`;

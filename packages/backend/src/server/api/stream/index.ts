@@ -22,7 +22,7 @@ export default class Connection {
 	public userProfile?: UserProfile | null;
 	public following: Set<User['id']> = new Set();
 	public muting: Set<User['id']> = new Set();
-	public blocking: Set<User['id']> = new Set(); // "被"blocking
+	public blocking: Set<User['id']> = new Set(); 
 	public followingChannels: Set<ChannelModel['id']> = new Set();
 	public token?: AccessToken;
 	private wsConnection: websocket.connection;
@@ -64,7 +64,7 @@ export default class Connection {
 		}
 	}
 
-	private onUserEvent(data: StreamMessages['user']['payload']) { // { type, body }と展開するとそれぞれ型が分離してしまう
+	private onUserEvent(data: StreamMessages['user']['payload']) { 
 		switch (data.type) {
 			case 'follow':
 				this.following.add(data.body.id);
@@ -106,9 +106,7 @@ export default class Connection {
 		}
 	}
 
-	/**
-	 * クライアントからメッセージ受信時
-	 */
+	
 	private async onWsConnectionMessage(data: websocket.Message) {
 		if (data.type !== 'utf8') return;
 		if (data.utf8Data == null) return;
@@ -135,9 +133,6 @@ export default class Connection {
 			case 'channel': this.onChannelMessageRequested(body); break;
 			case 'ch': this.onChannelMessageRequested(body); break; // alias
 
-			// 個々のチャンネルではなくルートレベルでこれらのメッセージを受け取る理由は、
-			// クライアントの事情を考慮したとき、入力フォームはノートチャンネルやメッセージのメインコンポーネントとは別
-			// なこともあるため、それらのコンポーネントがそれぞれ各チャンネルに接続するようにするのは面倒なため。
 			case 'typingOnChannel': this.typingOnChannel(body.channel); break;
 			case 'typingOnMessaging': this.typingOnMessaging(body); break;
 		}
@@ -185,9 +180,6 @@ export default class Connection {
 		readNotification(this.user!.id, [payload.id]);
 	}
 
-	/**
-	 * 投稿購読要求時
-	 */
 	private onSubscribeNote(payload: any) {
 		if (!payload.id) return;
 
@@ -202,9 +194,7 @@ export default class Connection {
 		}
 	}
 
-	/**
-	 * 投稿購読解除要求時
-	 */
+
 	private onUnsubscribeNote(payload: any) {
 		if (!payload.id) return;
 
@@ -223,25 +213,18 @@ export default class Connection {
 		});
 	}
 
-	/**
-	 * チャンネル接続要求時
-	 */
+
 	private onChannelConnectRequested(payload: any) {
 		const { channel, id, params, pong } = payload;
 		this.connectChannel(id, params, channel, pong);
 	}
 
-	/**
-	 * チャンネル切断要求時
-	 */
+	
 	private onChannelDisconnectRequested(payload: any) {
 		const { id } = payload;
 		this.disconnectChannel(id);
 	}
 
-	/**
-	 * クライアントにメッセージ送信
-	 */
 	public sendMessageToWs(type: string, payload: any) {
 		this.wsConnection.send(JSON.stringify({
 			type: type,
@@ -249,15 +232,13 @@ export default class Connection {
 		}));
 	}
 
-	/**
-	 * チャンネルに接続
-	 */
+
 	public connectChannel(id: string, params: any, channel: string, pong = false) {
 		if ((channels as any)[channel].requireCredential && this.user == null) {
 			return;
 		}
 
-		// 共有可能チャンネルに接続しようとしていて、かつそのチャンネルに既に接続していたら無意味なので無視
+	
 		if ((channels as any)[channel].shouldShare && this.channels.some(c => c.chName === channel)) {
 			return;
 		}
@@ -274,8 +255,8 @@ export default class Connection {
 	}
 
 	/**
-	 * チャンネルから切断
-	 * @param id チャンネルコネクションID
+	 * 
+	 * @param id 
 	 */
 	public disconnectChannel(id: string) {
 		const channel = this.channels.find(c => c.id === id);
@@ -287,8 +268,8 @@ export default class Connection {
 	}
 
 	/**
-	 * チャンネルへメッセージ送信要求時
-	 * @param data メッセージ
+	 * 
+	 * @param data 
 	 */
 	private onChannelMessageRequested(data: any) {
 		const channel = this.channels.find(c => c.id === data.id);
@@ -335,7 +316,7 @@ export default class Connection {
 		this.muting = new Set<string>(mutings.map(x => x.muteeId));
 	}
 
-	private async updateBlocking() { // ここでいうBlockingは被Blockingの意
+	private async updateBlocking() { 
 		const blockings = await Blockings.find({
 			where: {
 				blockeeId: this.user!.id,
@@ -363,9 +344,6 @@ export default class Connection {
 		});
 	}
 
-	/**
-	 * ストリームが切れたとき
-	 */
 	public dispose() {
 		for (const c of this.channels.filter(c => c.dispose)) {
 			if (c.dispose) c.dispose();
