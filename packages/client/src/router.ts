@@ -18,12 +18,12 @@ export const routes = [{
 
 {
  path: '/my/groups',
- component: page('my-groups/index')
+ component: page('my-groups/index'),
 }, 
 
 {
  path: '/my/groups/:group',
- component: page('my-groups/group'), props: route => ({ groupId: route.params.group })
+ component: page('my-groups/group'), props: route => ({ groupId: route.params.group }),
 },
 
 {

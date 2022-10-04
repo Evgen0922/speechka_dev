@@ -52,6 +52,7 @@ import { useRouter } from '@/router';
 import { i18n } from '@/i18n';
 import { definePageMetadata } from '@/scripts/page-metadata';
 import { $i } from '@/account';
+import * as symbols from '@/symbols';
 
 const router = useRouter();
 
