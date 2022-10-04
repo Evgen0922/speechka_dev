@@ -1,9 +1,13 @@
 import { AsyncComponentLoader, defineAsyncComponent, inject } from 'vue';
 import { Router } from '@/nirax';
 import { $i, iAmModerator } from '@/account';
+import { $i, iAmModerator } from './account';
 import MkLoading from '@/pages/_loading_.vue';
 import MkError from '@/pages/_error_.vue';
 import { ui } from '@/config';
+import MkTimeline from '@/pages/timeline.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import { defineAsyncComponent, markRaw } from 'vue';
 
 const page = (loader: AsyncComponentLoader<any>) => defineAsyncComponent({
 	loader: loader,
@@ -18,12 +22,12 @@ export const routes = [{
 
 {
  path: '/my/groups',
- component: page('my-groups/index'),
+ component: page('my-groups/index.vue'),
 }, 
 
 {
  path: '/my/groups/:group',
- component: page('my-groups/group'), props: route => ({ groupId: route.params.group }),
+ component: page('my-groups/group.vue'), props: route => ({ groupId: route.params.group }),
 },
 
 {
