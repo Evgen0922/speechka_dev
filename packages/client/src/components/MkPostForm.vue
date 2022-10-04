@@ -54,7 +54,7 @@
 			<button v-tooltip="i18n.ts.hashtags" class="_button" :class="{ active: withHashtags }" @click="withHashtags = !withHashtags"><i class="fas fa-hashtag"></i></button>
 			<button v-tooltip="i18n.ts.emoji" class="_button" @click="insertEmoji"><i class="fas fa-laugh-squint"></i></button>
 			<button v-if="postFormActions.length > 0" v-tooltip="i18n.ts.plugin" class="_button" @click="showActions"><i class="fas fa-plug"></i></button>
-		</footer
+		</footer>
 		<datalist id="hashtags">
 			<option v-for="hashtag in recentHashtags" :key="hashtag" :value="hashtag"/>
 		</datalist>
