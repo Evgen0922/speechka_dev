@@ -14,10 +14,23 @@ const page = (loader: AsyncComponentLoader<any>) => defineAsyncComponent({
 export const routes = [{
 	path: '/@:initUser/pages/:initPageName/view-source',
 	component: page(() => import('./pages/page-editor/page-editor.vue')),
-}, {
+}, 
+
+{
+ path: '/my/groups',
+ component: page('my-groups/index')
+}, 
+
+{
+ path: '/my/groups/:group',
+ component: page('my-groups/group'), props: route => ({ groupId: route.params.group })
+},
+
+{
 	path: '/@:username/pages/:pageName',
 	component: page(() => import('./pages/page.vue')),
-}, {
+}, 
+{
 	path: '/@:acct/following',
 	component: page(() => import('./pages/user/following.vue')),
 }, {
