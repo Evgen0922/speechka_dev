@@ -359,7 +359,7 @@ export async function addFile({
 
 	const info = await getFileInfo(path, {
 		skipSensitiveDetection: skipNsfwCheck,
-		sensitiveThreshold: // 感度が高いほどしきい値は低くすることになる
+		sensitiveThreshold: 
 			instance.sensitiveMediaDetectionSensitivity === 'veryHigh' ? 0.1 :
 			instance.sensitiveMediaDetectionSensitivity === 'high' ? 0.3 :
 			instance.sensitiveMediaDetectionSensitivity === 'low' ? 0.7 :
@@ -370,11 +370,7 @@ export async function addFile({
 	});
 	logger.info(`${JSON.stringify(info)}`);
 
-	// 現状 false positive が多すぎて実用に耐えない
-	//if (info.porn && instance.disallowUploadWhenPredictedAsPorn) {
-	//	throw new IdentifiableError('282f77bf-5816-4f72-9264-aa14d8261a21', 'Detected as porn.');
-	//}
-
+	
 	// detect name
 	const detectedName = name || (info.type.ext ? `untitled.${info.type.ext}` : 'untitled');
 
@@ -481,7 +477,7 @@ export async function addFile({
 
 		if (isLink) {
 			file.url = url;
-			// ローカルプロキシ用
+			
 			file.accessKey = uuid();
 			file.thumbnailAccessKey = 'thumbnail-' + uuid();
 			file.webpublicAccessKey = 'webpublic-' + uuid();

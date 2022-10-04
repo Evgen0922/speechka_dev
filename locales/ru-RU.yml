@@ -1645,8 +1645,8 @@ _notification:
   youGotMessagingMessageFromUser: "{name} пишет вам."
   youGotMessagingMessageFromGroup: "Новое сообщение в группе «{name}»."
   youWereFollowed: "{name} подписался на Вас."
-  youReceivedFollowRequest: "У вас новый запрос на подписку."
-  yourFollowRequestAccepted: "Ваш запрос на подписку одобрен."
+  youReceivedFollowRequest: "Новый запрос на подписку."
+  yourFollowRequestAccepted: "Запрос на подписку одобрен."
   youWereInvitedToGroup: "Вы приглашены в группу."
   _types:
     all: "Все"

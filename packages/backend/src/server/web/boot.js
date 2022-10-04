@@ -1,17 +1,7 @@
-/**
- * BOOT LOADER
- * サーバーからレスポンスされるHTMLに埋め込まれるスクリプトで、以下の役割を持ちます。
- * - 翻訳ファイルをフェッチする。
- * - バージョンに基づいて適切なメインスクリプトを読み込む。
- * - キャッシュされたコンパイル済みテーマを適用する。
- * - クライアントの設定値に基づいて対応するHTMLクラス等を設定する。
- * テーマをこの段階で設定するのは、メインスクリプトが読み込まれる間もテーマを適用したいためです。
- * 注: webpackは介さないため、このファイルではrequireやimportは使えません。
- */
 
 'use strict';
 
-// ブロックの中に入れないと、定義した変数がブラウザのグローバルスコープに登録されてしまい邪魔なので
+
 (async () => {
 	window.onerror = (e) => {
 		console.error(e);
@@ -65,7 +55,7 @@
 			});
 	}
 
-	// タイミングによっては、この時点でDOMの構築が済んでいる場合とそうでない場合とがある
+
 	if (document.readyState !== 'loading') {
 		importAppScript();
 	} else {
@@ -81,7 +71,7 @@
 		for (const [k, v] of Object.entries(JSON.parse(theme))) {
 			document.documentElement.style.setProperty(`--${k}`, v.toString());
 
-			// HTMLの theme-color 適用
+			// HTML theme-color 
 			if (k === 'htmlThemeColor') {
 				for (const tag of document.head.children) {
 					if (tag.tagName === 'META' && tag.getAttribute('name') === 'theme-color') {

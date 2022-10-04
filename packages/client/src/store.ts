@@ -52,7 +52,7 @@ export const defaultStore = markRaw(new Storage('base', {
 	},
 	reactions: {
 		where: 'account',
-		default: ['👍', '❤️', '😆', '🤔', '😮', '🎉', '💢', '😥', '😇', '🍮'],
+		default: ['👍', '❤️', '😆', '🤔', '😮', '🎉', '💢', '😥', '🍮'],
 	},
 	mutedWords: {
 		where: 'account',

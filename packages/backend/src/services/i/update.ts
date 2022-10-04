@@ -10,7 +10,7 @@ export async function publishToFollowers(userId: User['id']) {
 	const user = await Users.findOneBy({ id: userId });
 	if (user == null) throw new Error('user not found');
 
-	// フォロワーがリモートユーザーかつ投稿者がローカルユーザーならUpdateを配信
+	
 	if (Users.isLocalUser(user)) {
 		const content = renderActivity(renderUpdate(await renderPerson(user), user));
 		deliverToFollowers(user, content);

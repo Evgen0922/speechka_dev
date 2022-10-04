@@ -291,13 +291,13 @@ export default abstract class Chart<T extends Schema> {
 			span === 'day' ? this.repositoryForDay :
 			new Error('not happen') as never;
 
-		// 現在(=今のHour or Day)のログ
+		
 		const currentLog = await repository.findOneBy({
 			date: Chart.dateToTimestamp(current),
 			...(group ? { group: group } : {}),
 		}) as RawRecord<T> | undefined;
 
-		// ログがあればそれを返して終了
+		
 		if (currentLog != null) {
 			return currentLog;
 		}
@@ -305,22 +305,14 @@ export default abstract class Chart<T extends Schema> {
 		let log: RawRecord<T>;
 		let data: KVs<T>;
 
-		// 集計期間が変わってから、初めてのチャート更新なら
-		// 最も最近のログを持ってくる
-		// * 例えば集計期間が「日」である場合で考えると、
-		// * 昨日何もチャートを更新するような出来事がなかった場合は、
-		// * ログがそもそも作られずドキュメントが存在しないということがあり得るため、
-		// * 「昨日の」と決め打ちせずに「もっとも最近の」とします
+		
 		const latest = await this.getLatestLog(group, span);
 
 		if (latest != null) {
-			// 空ログデータを作成
+			
 			data = this.getNewLog(this.convertRawRecord(latest));
 		} else {
-			// ログが存在しなかったら
-			// (Misskeyインスタンスを建てて初めてのチャート更新時など)
-
-			// 初期ログデータを作成
+			
 			data = this.getNewLog(null);
 
 			logger.info(`${this.name + (group ? `:${group}` : '')}(${span}): Initial commit created`);
@@ -331,13 +323,13 @@ export default abstract class Chart<T extends Schema> {
 
 		const unlock = await getChartInsertLock(lockKey);
 		try {
-			// ロック内でもう1回チェックする
+			
 			const currentLog = await repository.findOneBy({
 				date: date,
 				...(group ? { group: group } : {}),
 			}) as RawRecord<T> | undefined;
 
-			// ログがあればそれを返して終了
+			
 			if (currentLog != null) return currentLog;
 
 			const columns = {} as Record<string, number | unknown[]>;
@@ -346,7 +338,7 @@ export default abstract class Chart<T extends Schema> {
 				columns[columnPrefix + name] = v;
 			}
 
-			// 新規ログ挿入
+			
 			log = await repository.insert({
 				date: date,
 				...(group ? { group: group } : {}),
