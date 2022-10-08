@@ -35,16 +35,20 @@
 	import { definePageMetadata } from "@/scripts/page-metadata";
 	import { i18n } from '@/i18n';
 	import MkStickyContainer from '@/components/global/MkStickyContainer.vue';
+	
 	const owned = ref('owned');
 	const joined = ref('joined');
+	
 	const ownedPagination = {
 		endpoint: 'users/groups/owned' as const,
 		limit: 10,
 	};
+	
 	const joinedPagination = {
 		endpoint: 'users/groups/joined' as const,
 		limit: 10,
 	};
+	
 	const headerActions = $computed(() => [
 		{
 			icon: 'fas fa-plus',
@@ -52,12 +56,14 @@
 			handler: create,
 		},
 	]);
+	
 	definePageMetadata(
 		computed(() => ({
 			title: i18n.ts.groups,
 			icon: "fas fa-users",
 		})),
 	);
+	
 	async function create() {
 		const { canceled, result: name } = await os.inputText({
 			title: i18n.ts.groupName,
@@ -67,6 +73,7 @@
 		owned.value.reload();
 		os.success();
 	}
+	
 	async function leave(group) {
 		const { canceled } = await os.confirm({
 			type: 'warning',
