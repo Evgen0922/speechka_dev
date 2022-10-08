@@ -48,7 +48,7 @@
 		</FormFolder>
 	</FormSection>
 
-	<FormSwitch v-model="keepCw" class="_formBlock" @update:modelValue="save()">{{ i18n.ts.keepCw }}</FormSwitch>
+	<!-- <FormSwitch v-model="keepCw" class="_formBlock" @update:modelValue="save()">{{ i18n.ts.keepCw }}</FormSwitch> -->
 </div>
 </template>
 
