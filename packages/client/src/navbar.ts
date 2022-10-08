@@ -24,7 +24,7 @@ export const navbarItemDef = reactive({
 	groups: {
 		title: 'groups',
 		icon: 'fas fa-users',
-		show: computed(() => $i != null),
+		// show: computed(() => $i != null),
 		to: '/my/groups',
 	},
 	drive: {
