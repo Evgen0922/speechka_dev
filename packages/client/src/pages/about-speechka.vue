@@ -11,9 +11,9 @@
 					<div class="version">v{{ version }}</div>
 					<span v-for="emoji in easterEggEmojis" :key="emoji.id" class="emoji" :data-physics-x="emoji.left" :data-physics-y="emoji.top" :class="{ _physics_circle_: !emoji.emoji.startsWith(':') }"><MkEmoji class="emoji" :emoji="emoji.emoji" :custom-emojis="$instance.emojis" :is-reaction="false" :normal="true" :no-style="true"/></span>
 				</div>
-				<div class="_formBlock" style="text-align: center;">
+				<!-- <div class="_formBlock" style="text-align: center;">
 					{{ i18n.ts._aboutMisskey.about }}<br><a href="https://github.com/Evgen0922/speechka_develop" target="_blank" class="_link">{{ i18n.ts.learnMore }}</a>
-				</div>
+				</div> -->
 				<div class="_formBlock" style="text-align: center;">
 					<MkButton primary rounded inline @click="iLoveMisskey">I <Mfm text="$[jelly ❤]"/> #Speechka</MkButton>
 				</div>
@@ -38,11 +38,11 @@
 					</div>
 					<template #caption><MkLink url="https://github.com/Evgen0922/speechka_develop">{{ i18n.ts._aboutMisskey.allContributors }}</MkLink></template>
 				</FormSection>
-				<FormSection>
+				<!-- <FormSection>
 					<template #label><Mfm text="$[jelly ❤]"/> {{ i18n.ts._aboutMisskey.patrons }}</template>
 					<div v-for="patron in patrons" :key="patron">{{ patron }}</div>
 					<template #caption>{{ i18n.ts._aboutMisskey.morePatrons }}</template>
-				</FormSection>
+				</FormSection> -->
 			</div>
 		</MkSpacer>
 	</div>
