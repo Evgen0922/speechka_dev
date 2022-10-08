@@ -1,16 +1,16 @@
 <template>
 <div class="_formRoot">
-	<FormSelect v-model="lang" class="_formBlock">
+	<!-- <FormSelect v-model="lang" class="_formBlock">
 		<template #label>{{ i18n.ts.uiLanguage }}</template>
 		<option v-for="x in langs" :key="x[0]" :value="x[0]">{{ x[1] }}</option>
 		<template #caption>
 			<I18n :src="i18n.ts.i18nInfo" tag="span">
-				<!-- <template #link>
+				<template #link>
 					<MkLink url="https://crowdin.com/project/misskey">Crowdin</MkLink>
-				</template> -->
+				</template>
 			</I18n>
 		</template>
-	</FormSelect>
+	</FormSelect> -->
 
 	<FormRadios v-model="overridedDeviceKind" class="_formBlock">
 		<template #label>{{ i18n.ts.overridedDeviceKind }}</template>

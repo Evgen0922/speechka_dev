@@ -36,10 +36,10 @@
 		<!-- <FormSwitch v-model="alwaysMarkNsfw" class="_formBlock" @update:modelValue="saveProfile()">
 			<template #label>{{ i18n.ts.alwaysMarkSensitive }}</template>
 		</FormSwitch> -->
-		<FormSwitch v-model="autoSensitive" class="_formBlock" @update:modelValue="saveProfile()">
+		<!-- <FormSwitch v-model="autoSensitive" class="_formBlock" @update:modelValue="saveProfile()">
 			<template #label>{{ i18n.ts.enableAutoSensitive }}<span class="_beta">{{ i18n.ts.beta }}</span></template>
 			<template #caption>{{ i18n.ts.enableAutoSensitiveDescription }}</template>
-		</FormSwitch>
+		</FormSwitch> -->
 	</FormSection>
 </div>
 </template>

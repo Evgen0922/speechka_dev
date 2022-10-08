@@ -14,13 +14,14 @@ const merge = (...args) => args.reduce((a, c) => ({
 }), {});
 
 const languages = [
-	'en-US',
+	// 'en-US',
 	'ru-RU',
-	'uk-UA',
+	// 'uk-UA',
 ];
 
 const primaries = {
 	'en': 'US',
+	'ru': 'RU',
 	'ja': 'JP',
 	'zh': 'CN',
 };
