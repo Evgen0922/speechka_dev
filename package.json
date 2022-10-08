@@ -4,7 +4,7 @@
 	"codename": "indigo",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Evgen0922/speechka_dev.git"
+		"url": "https://github.com/Evgen0922/speechka_develop.git"
 	},
 	"private": true,
 	"scripts": {

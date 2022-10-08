@@ -354,14 +354,14 @@ export class Meta {
 
 	@Column('varchar', {
 		length: 512,
-		default: 'https://github.com/Evgen0922/speechka_dev',
+		default: 'https://github.com/Evgen0922/speechka_develop',
 		nullable: false,
 	})
 	public repositoryUrl: string;
 
 	@Column('varchar', {
 		length: 512,
-		default: 'https://github.com/Evgen0922/speechka_dev/issues/new',
+		default: 'https://github.com/Evgen0922/speechka_develop/issues/new',
 		nullable: true,
 	})
 	public feedbackUrl: string | null;

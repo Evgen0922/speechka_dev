@@ -43,7 +43,7 @@
 		<div>{{ i18n.ts._tutorial.step7_1 }}</div>
 		<I18n :src="i18n.ts._tutorial.step7_2" tag="div">
 			<template #help>
-				<a href="https://github.com/Evgen0922/speechka_dev_ynh" target="_blank" class="_link">{{ i18n.ts.help }}</a>
+				<a href="https://github.com/Evgen0922/speechka_develop_ynh" target="_blank" class="_link">{{ i18n.ts.help }}</a>
 			</template>
 		</I18n>
 		<div>{{ i18n.ts._tutorial.step7_3 }}</div>

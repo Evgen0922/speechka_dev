@@ -138,7 +138,7 @@ export default defineComponent({
 				text: this.$ts.help,
 				icon: 'fas fa-question-circle',
 				action: () => {
-					window.open(`https://github.com/Evgen0922/speechka_dev`, '_blank');
+					window.open(`https://github.com/Evgen0922/speechka_develop`, '_blank');
 				}
 			}], ev.currentTarget ?? ev.target);
 		},
