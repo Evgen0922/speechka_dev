@@ -2,27 +2,27 @@
 <div class="_card">
 	<div class="_content">
 		<MkInput v-model="text">
-			<template #label>Text</template>
+			<template #label>Текст</template>
 		</MkInput>
 		<MkSwitch v-model="flag">
-			<span>Switch is now {{ flag ? 'on' : 'off' }}</span>
+			<span>Переключатель {{ flag ? 'on' : 'off' }}</span>
 		</MkSwitch>
 		<div style="margin: 32px 0;">
-			<MkRadio v-model="radio" value="misskey">Misskey</MkRadio>
-			<MkRadio v-model="radio" value="mastodon">Mastodon</MkRadio>
-			<MkRadio v-model="radio" value="pleroma">Pleroma</MkRadio>
+			<MkRadio v-model="radio" value="misskey">Выбор 1</MkRadio>
+			<MkRadio v-model="radio" value="mastodon">Выбор 2</MkRadio>
+			<!-- <MkRadio v-model="radio" value="pleroma">Pleroma</MkRadio> -->
 		</div>
-		<MkButton inline>This is</MkButton>
-		<MkButton inline primary>the button</MkButton>
+		<MkButton inline>Это</MkButton>
+		<MkButton inline primary>кнопка</MkButton>
 	</div>
 	<div class="_content" style="pointer-events: none;">
 		<Mfm :text="mfm"/>
 	</div>
 	<div class="_content">
-		<MkButton inline primary @click="openMenu">Open menu</MkButton>
-		<MkButton inline primary @click="openDialog">Open dialog</MkButton>
-		<MkButton inline primary @click="openForm">Open form</MkButton>
-		<MkButton inline primary @click="openDrive">Open drive</MkButton>
+		<MkButton inline primary @click="openMenu">Меню</MkButton>
+		<MkButton inline primary @click="openDialog">Диалог</MkButton>
+		<MkButton inline primary @click="openForm">Форма</MkButton>
+		<MkButton inline primary @click="openDrive">Диск</MkButton>
 	</div>
 </div>
 </template>
@@ -51,7 +51,7 @@ export default defineComponent({
 			text: '',
 			flag: true,
 			radio: 'misskey',
-			mfm: `Hello world! This is an @example mention. BTW you are @${this.$i ? this.$i.username : 'guest'}.\nAlso, here is ${config.url} and [example link](${config.url}).`
+			mfm: `Привет мир! Это тестовый аккаунт @example. А это твой аккаунт: @${this.$i ? this.$i.username : 'guest'}.\n А вот так выглядит ${config.url}[ссылка](${config.url}).`
 		};
 	},
 

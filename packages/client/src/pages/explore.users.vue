@@ -1,9 +1,9 @@
 <template>
 <MkSpacer :content-max="1200">
-	<MkTab v-model="origin" style="margin-bottom: var(--margin);">
+	<!-- <MkTab v-model="origin" style="margin-bottom: var(--margin);">
 		<option value="local">{{ i18n.ts.local }}</option>
-		<!-- <option value="remote">{{ i18n.ts.remote }}</option> -->
-	</MkTab>
+		<option value="remote">{{ i18n.ts.remote }}</option>
+	</MkTab> -->
 	<div v-if="origin === 'local'">
 		<template v-if="tag == null">
 			<MkFolder class="_gap" persist-key="explore-pinned-users">
