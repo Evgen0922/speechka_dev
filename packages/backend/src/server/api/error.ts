@@ -10,9 +10,9 @@ export class ApiError extends Error {
 
 	constructor(e?: E | null | undefined, info?: any | null | undefined) {
 		if (e == null) e = {
-			message: 'Internal error occurred. Please contact us if the error persists.',
+			message: 'Внимание! Ошибка в системе!',
 			code: 'INTERNAL_ERROR',
-			id: '5d37dbcb-891e-41ca-a3d6-e690c97775ac',
+			id: '500-000-000-000',
 			kind: 'server',
 			httpStatusCode: 500,
 		};

@@ -15,8 +15,7 @@ export default async (ctx: Koa.Context) => {
 
 	const instance = await fetchMeta(true);
 
-	// Verify *Captcha
-	// ただしテスト時はこの機構は障害となるため無効にする
+	
 	if (process.env.NODE_ENV !== 'test') {
 		if (instance.enableHcaptcha && instance.hcaptchaSecretKey) {
 			await verifyHcaptcha(instance.hcaptchaSecretKey, body['hcaptcha-response']).catch(e => {
@@ -86,9 +85,9 @@ export default async (ctx: Koa.Context) => {
 
 		const link = `${config.url}/signup-complete/${code}`;
 
-		sendEmail(emailAddress, 'Signup',
-			`To complete signup, please click this link:<br><a href="${link}">${link}</a>`,
-			`To complete signup, please click this link: ${link}`);
+		sendEmail(emailAddress, 'Регистрация',
+			`Что-бы завершить регистрацию, перейдите по ссылке:<br><a href="${link}">${link}</a>`,
+			`Что-бы завершить регистрацию, перейдите по ссылке: ${link}`);
 
 		ctx.status = 204;
 	} else {
